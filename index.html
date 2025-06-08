@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Activity Finder</title>
+    <meta name="description" content="お子様のアクティビティを見つけるためのアプリケーション">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+    <meta property="og:title" content="Kids Activity Finder">
+    <meta property="og:description" content="お子様のアクティビティを見つけるためのアプリケーション">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <h1>Kids Activity Finder</h1>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('ServiceWorker registration successful');
+                })
+                .catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+        }
+    </script>
+</body>
+</html> 
