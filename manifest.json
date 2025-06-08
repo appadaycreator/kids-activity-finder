@@ -1,21 +1,23 @@
 {
-    "name": "Kids Activity Finder",
-    "short_name": "Kids Activity",
-    "description": "お子様のアクティビティを見つけるためのアプリケーション",
+    "name": "子供の習い事診断 Pro",
+    "short_name": "習い事診断Pro",
+    "description": "お子様にぴったりの習い事を見つけよう",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "background_color": "#f8fafc",
+    "theme_color": "#6366f1",
     "icons": [
-        {
-            "src": "assets/favicon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "assets/favicon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
+      {
+        "src": "assets/favicon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "assets/favicon-512.png", 
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
     ]
-} 
+  }
