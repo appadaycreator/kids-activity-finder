@@ -1,11 +1,11 @@
 const CACHE_NAME = 'kids-activity-finder-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/assets/favicon-192.png',
-    '/assets/favicon-512.png',
-    '/assets/og-image.jpg'
+    '/kids-activity-finder/',
+    '/kids-activity-finder/index.html',
+    '/kids-activity-finder/manifest.json',
+    '/kids-activity-finder/assets/favicon-192.png',
+    '/kids-activity-finder/assets/favicon-512.png',
+    '/kids-activity-finder/assets/og-image.jpg'
 ];
 
 self.addEventListener('install', event => {
