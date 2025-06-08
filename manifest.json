@@ -1,23 +1,21 @@
 {
-    "name": "子供の習い事診断 Pro",
-    "short_name": "習い事診断Pro",
-    "description": "お子様にぴったりの習い事を見つけよう",
+    "name": "子供の習い事診断",
+    "short_name": "習い事診断", 
+    "description": "お子様にぴったりの習い事を診断",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#f8fafc",
-    "theme_color": "#6366f1",
+    "background_color": "#ffffff",
+    "theme_color": "#4f46e5",
     "icons": [
       {
-        "src": "assets/favicon-192.png",
-        "sizes": "192x192",
-        "type": "image/png",
-        "purpose": "any maskable"
+        "src": "favicon-192.png",
+        "sizes": "192x192", 
+        "type": "image/png"
       },
       {
-        "src": "assets/favicon-512.png", 
+        "src": "favicon-512.png",
         "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "any maskable"
+        "type": "image/png"
       }
     ]
   }
