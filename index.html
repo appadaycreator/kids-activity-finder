@@ -828,31 +828,6 @@
             });
         }
 
-        function shareResult() {
-            var result = appState.result;
-            if (!result) return;
-            
-            var shareText = '30日連続開発チャレンジ（22/30）\n\n' +
-                           'https://appadaycreator.github.io/kids-activity-finder\n\n' +
-                           '👦お子様に最適な習い事は？\n' +
-                           '無料の習い事診断サービスを作りました！\n' +
-                           '✅ 性格分析で適性判定\n' +
-                           '✅ おすすめTOP3を表示\n' +
-                           '✅ 診断履歴も保存\n\n' +
-                           '子供の可能性を広げる第一歩を💫\n\n' +
-                           '#継続は力なり #習い事 #子育て #教育 #無料診断';
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: '子供の習い事診断結果',
-                    text: shareText
-                });
-            } else {
-                var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText);
-                window.open(url, '_blank');
-            }
-        }
-
         function saveResult() {
             var result = appState.result;
             if (!result) return;
@@ -871,6 +846,32 @@
                 debugLog('Error saving result: ' + error.message);
                 alert('保存に失敗しました。ブラウザの設定をご確認ください。');
             }
+        }
+
+        function shareResult() {
+            if (!navigator.share) {
+                alert('お使いのブラウザではシェア機能が利用できません。');
+                return;
+            }
+
+            const result = appState.result;
+            if (!result) return;
+
+            const topActivity = result.topRecommendations[0];
+            const shareText = `【子供の習い事診断結果】\n\nおすすめの習い事：${topActivity.name}\n\nあなたのお子様にぴったりの習い事を見つけませんか？\nhttps://appadaycreator.github.io/kids-activity-finder/`;
+
+            navigator.share({
+                title: '子供の習い事診断結果',
+                text: shareText,
+                url: 'https://appadaycreator.github.io/kids-activity-finder/'
+            })
+            .then(() => {
+                debugLog('Share successful');
+            })
+            .catch((error) => {
+                debugLog('Share failed: ' + error);
+                alert('シェアに失敗しました。');
+            });
         }
 
         function showHistory() {
