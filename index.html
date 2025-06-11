@@ -95,6 +95,73 @@
             font-size: 12px;
             font-weight: bold;
         }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+        .affiliate-banner {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .affiliate-banner:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+        }
+        .affiliate-banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .affiliate-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .affiliate-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -307,6 +374,27 @@
             </div>
         </div>
     </main>
+
+    <!-- Affiliate Banner Modal -->
+    <div id="affiliate-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-banners" class="space-y-4">
+                <!-- アフィリエイトバナーがここに動的に挿入されます -->
+            </div>
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-500">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    おすすめ教室の情報です。詳細は各教室にお問い合わせください。
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-100 py-8 mt-12">
@@ -521,12 +609,30 @@
                 icon: 'fas fa-baby',
                 benefits: ['運動機能発達', '親子のスキンシップ', '免疫力向上', '感覚刺激'],
                 cost: '月額6,000円〜10,000円',
-                ageRange: '0歳〜3歳',
+                ageRange: '0歳〜2歳',
                 timeCommitment: '週1回 30分',
                 traits: ['physical', 'sensory'],
                 difficulty: 'easy',
                 continuity_rate: 85,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'コナミスポーツクラブ ベビースイミング',
+                        description: '全国展開の安心のベビースイミング教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/4f46e5/white?text=コナミスポーツクラブ',
+                        affiliateUrl: 'https://example.com/konami-baby-swimming',
+                        price: '月額7,500円〜',
+                        features: ['全国200店舗', '経験豊富なインストラクター', '親子で安心']
+                    },
+                    {
+                        title: 'セントラルスポーツ ママベビコース',
+                        description: '0歳から始められるベビースイミング専門',
+                        imageUrl: 'https://via.placeholder.com/300x150/059669/white?text=セントラルスポーツ',
+                        affiliateUrl: 'https://example.com/central-baby-swimming',
+                        price: '月額6,800円〜',
+                        features: ['専用プール', '少人数制', '無料体験あり']
+                    }
+                ]
             },
             baby_massage: {
                 name: 'ベビーマッサージ',
@@ -591,7 +697,7 @@
                 icon: 'fas fa-child',
                 benefits: ['基礎体力', 'バランス感覚', '協調性', '自信'],
                 cost: '月額6,000円〜10,000円',
-                ageRange: '1歳〜4歳',
+                ageRange: '2歳〜5歳',
                 timeCommitment: '週1回 45分',
                 traits: ['physical', 'kinesthetic'],
                 difficulty: 'medium',
@@ -619,7 +725,7 @@
                 icon: 'fas fa-cookie-bite',
                 benefits: ['食育', '親子時間', '創造力', '達成感'],
                 cost: '月額3,000円〜6,000円',
-                ageRange: '2歳〜6歳',
+                ageRange: '3歳〜6歳',
                 timeCommitment: '月2回 90分',
                 traits: ['creative', 'kinesthetic'],
                 difficulty: 'medium',
@@ -633,7 +739,7 @@
                 icon: 'fas fa-atom',
                 benefits: ['論理的思考', '問題解決力', '創造力', '科学的思考'],
                 cost: '月額8,000円〜12,000円',
-                ageRange: '3歳〜6歳',
+                ageRange: '4歳〜6歳',
                 timeCommitment: '週1回 60分',
                 traits: ['intellectual', 'curious'],
                 difficulty: 'medium',
@@ -647,7 +753,7 @@
                 icon: 'fas fa-seedling',
                 benefits: ['自立心', '集中力', '創造力', '社会性'],
                 cost: '月額12,000円〜20,000円',
-                ageRange: '1歳〜6歳',
+                ageRange: '2歳〜6歳',
                 timeCommitment: '週2回 120分',
                 traits: ['intellectual', 'independent'],
                 difficulty: 'medium',
@@ -661,7 +767,7 @@
                 icon: 'fas fa-rainbow',
                 benefits: ['創造力', '芸術性', '感受性', '自然観'],
                 cost: '月額10,000円〜18,000円',
-                ageRange: '3歳〜12歳',
+                ageRange: '4歳〜12歳',
                 timeCommitment: '週1回 120分',
                 traits: ['creative', 'sensitive'],
                 difficulty: 'medium',
@@ -696,7 +802,33 @@
                 traits: ['intellectual', 'logical'],
                 difficulty: 'medium',
                 continuity_rate: 75,
-                future_potential: 'very_high'
+                future_potential: 'very_high',
+                affiliateBanners: [
+                    {
+                        title: 'QUREO（キュレオ）プログラミング教室',
+                        description: '小学生のためのプログラミング教室No.1',
+                        imageUrl: 'https://via.placeholder.com/300x150/8b5cf6/white?text=QUREO',
+                        affiliateUrl: 'https://example.com/qureo-programming',
+                        price: '月額9,900円〜',
+                        features: ['ゲーム感覚で学習', '個別指導', '全国2,500教室']
+                    },
+                    {
+                        title: 'ヒューマンアカデミージュニア',
+                        description: 'ロボット教室とプログラミング教室を展開',
+                        imageUrl: 'https://via.placeholder.com/300x150/f59e0b/white?text=ヒューマンアカデミー',
+                        affiliateUrl: 'https://example.com/human-academy-junior',
+                        price: '月額10,890円〜',
+                        features: ['ロボット製作', 'プログラミング', '全国1,600教室']
+                    },
+                    {
+                        title: 'LITALICOワンダー',
+                        description: 'IT×ものづくり教室でお子様の創造力を解放',
+                        imageUrl: 'https://via.placeholder.com/300x150/ef4444/white?text=LITALICOワンダー',
+                        affiliateUrl: 'https://example.com/litalico-wonder',
+                        price: '月額13,200円〜',
+                        features: ['オーダーメイド授業', '少人数制', '無料体験授業']
+                    }
+                ]
             },
             robotics_advanced: {
                 name: 'ロボット製作・AI',
@@ -705,7 +837,7 @@
                 icon: 'fas fa-robot',
                 benefits: ['工学的思考', 'AI理解', '創造力', '技術力'],
                 cost: '月額12,000円〜25,000円',
-                ageRange: '8歳〜18歳',
+                ageRange: '9歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['intellectual', 'kinesthetic'],
                 difficulty: 'hard',
@@ -733,7 +865,7 @@
                 icon: 'fas fa-helicopter',
                 benefits: ['空間認識力', '操縦技術', '創造力', '技術理解'],
                 cost: '月額10,000円〜20,000円',
-                ageRange: '8歳〜18歳',
+                ageRange: '10歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['technology', 'visual'],
                 difficulty: 'medium',
@@ -747,7 +879,7 @@
                 icon: 'fab fa-youtube',
                 benefits: ['表現力', '技術力', '企画力', 'メディアリテラシー'],
                 cost: '月額8,000円〜18,000円',
-                ageRange: '8歳〜18歳',
+                ageRange: '9歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['creative', 'social'],
                 difficulty: 'medium',
@@ -761,7 +893,7 @@
                 icon: 'fas fa-puzzle-piece',
                 benefits: ['プログラミング', '企画力', '創造力', '論理的思考'],
                 cost: '月額12,000円〜20,000円',
-                ageRange: '10歳〜18歳',
+                ageRange: '12歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['creative', 'logical'],
                 difficulty: 'hard',
@@ -775,7 +907,7 @@
                 icon: 'fas fa-vr-cardboard',
                 benefits: ['3D思考', '技術力', '創造力', '未来性'],
                 cost: '月額15,000円〜30,000円',
-                ageRange: '12歳〜18歳',
+                ageRange: '14歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['technology', 'creative'],
                 difficulty: 'hard',
@@ -789,7 +921,7 @@
                 icon: 'fas fa-palette',
                 benefits: ['デジタル技術', '芸術性', '新しい価値観', '創造力'],
                 cost: '月額10,000円〜20,000円',
-                ageRange: '10歳〜18歳',
+                ageRange: '12歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['creative', 'technology'],
                 difficulty: 'medium',
@@ -803,7 +935,7 @@
                 icon: 'fas fa-shield-alt',
                 benefits: ['セキュリティ意識', 'IT知識', '論理的思考', '社会貢献'],
                 cost: '月額10,000円〜18,000円',
-                ageRange: '12歳〜18歳',
+                ageRange: '14歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['logical', 'careful'],
                 difficulty: 'hard',
@@ -817,7 +949,7 @@
                 icon: 'fas fa-chart-bar',
                 benefits: ['データ分析', '統計思考', '論理性', '将来性'],
                 cost: '月額12,000円〜20,000円',
-                ageRange: '10歳〜18歳',
+                ageRange: '12歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['logical', 'analyst'],
                 difficulty: 'hard',
@@ -831,7 +963,7 @@
                 icon: 'fas fa-microchip',
                 benefits: ['電子技術', '創造力', '問題解決', '実践力'],
                 cost: '月額10,000円〜18,000円',
-                ageRange: '8歳〜18歳',
+                ageRange: '10歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['kinesthetic', 'logical'],
                 difficulty: 'medium',
@@ -845,7 +977,7 @@
                 icon: 'fas fa-link',
                 benefits: ['新技術理解', '経済概念', '論理的思考', '未来志向'],
                 cost: '月額12,000円〜20,000円',
-                ageRange: '14歳〜18歳',
+                ageRange: '15歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['logical', 'curious'],
                 difficulty: 'hard',
@@ -859,7 +991,7 @@
                 icon: 'fas fa-share-alt',
                 benefits: ['メディアリテラシー', '情報判断力', 'コミュニケーション', '社会性'],
                 cost: '月額6,000円〜12,000円',
-                ageRange: '10歳〜18歳',
+                ageRange: '12歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['social', 'logical'],
                 difficulty: 'medium',
@@ -873,7 +1005,7 @@
                 icon: 'fas fa-chart-line',
                 benefits: ['ビジネス感覚', 'マーケティング', '数値分析', '起業精神'],
                 cost: '月額10,000円〜18,000円',
-                ageRange: '12歳〜18歳',
+                ageRange: '14歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['social', 'analyst'],
                 difficulty: 'medium',
@@ -887,7 +1019,7 @@
                 icon: 'fas fa-lightbulb',
                 benefits: ['起業精神', 'ビジネス思考', 'リーダーシップ', '創造力'],
                 cost: '月額15,000円〜25,000円',
-                ageRange: '12歳〜18歳',
+                ageRange: '15歳〜18歳',
                 timeCommitment: '週1回 120分',
                 traits: ['leader', 'creative'],
                 difficulty: 'hard',
@@ -895,7 +1027,7 @@
                 future_potential: 'very_high'
             },
 
-            // スポーツ・運動系 (30種類) - 既存を含む
+            // スポーツ・運動系 (30種類) - 年齢範囲を厳密に修正
             soccer: {
                 name: 'サッカー',
                 description: 'チームワークと協調性を育むスポーツの王様',
@@ -903,12 +1035,30 @@
                 icon: 'fas fa-futbol',
                 benefits: ['チームワーク', '持久力向上', '協調性', '戦略的思考'],
                 cost: '月額6,000円〜12,000円',
-                ageRange: '3歳〜18歳',
+                ageRange: '4歳〜18歳',
                 timeCommitment: '週2回 90分',
                 traits: ['physical', 'social'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'リベルタサッカースクール',
+                        description: '全国No.1のサッカースクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/10b981/white?text=リベルタサッカー',
+                        affiliateUrl: 'https://example.com/liberta-soccer',
+                        price: '月額8,290円〜',
+                        features: ['全国1,200箇所', '3歳から12歳', '無料体験実施中']
+                    },
+                    {
+                        title: 'クーバー・コーチング',
+                        description: '世界基準の個人技術指導',
+                        imageUrl: 'https://via.placeholder.com/300x150/3b82f6/white?text=クーバーコーチング',
+                        affiliateUrl: 'https://example.com/coerver-coaching',
+                        price: '月額7,700円〜',
+                        features: ['個人技術特化', '世界30ヶ国で展開', '年齢別クラス']
+                    }
+                ]
             },
             swimming: {
                 name: '水泳',
@@ -917,7 +1067,7 @@
                 icon: 'fas fa-swimmer',
                 benefits: ['全身運動', '持久力向上', '姿勢改善', '心肺機能向上'],
                 cost: '月額8,000円〜15,000円',
-                ageRange: '3歳〜18歳',
+                ageRange: '4歳〜18歳',
                 timeCommitment: '週2回 60分',
                 traits: ['physical', 'individual'],
                 difficulty: 'medium',
@@ -945,7 +1095,7 @@
                 icon: 'fas fa-table-tennis',
                 benefits: ['反射神経', '戦略的思考', '集中力', '持久力'],
                 cost: '月額8,000円〜20,000円',
-                ageRange: '5歳〜18歳',
+                ageRange: '6歳〜18歳',
                 timeCommitment: '週1回 60分',
                 traits: ['physical', 'individual'],
                 difficulty: 'medium',
@@ -1038,7 +1188,7 @@
                 future_potential: 'medium'
             },
 
-            // 武道系 (10種類)
+                        // 武道系 (10種類) - 年齢範囲修正
             judo: {
                 name: '柔道',
                 description: '礼儀と精神力を鍛える日本の武道',
@@ -1060,7 +1210,7 @@
                 icon: 'fas fa-sword',
                 benefits: ['礼儀作法', '集中力', '精神力', '正しい姿勢'],
                 cost: '月額4,000円〜8,000円',
-                ageRange: '6歳〜18歳',
+                ageRange: '8歳〜18歳',
                 timeCommitment: '週2回 90分',
                 traits: ['cultural', 'perfectionist'],
                 difficulty: 'medium',
@@ -1074,7 +1224,7 @@
                 icon: 'fas fa-hand-rock',
                 benefits: ['護身術', '精神力', '体力向上', '礼儀作法'],
                 cost: '月額5,000円〜10,000円',
-                ageRange: '4歳〜18歳',
+                ageRange: '6歳〜18歳',
                 timeCommitment: '週2回 90分',
                 traits: ['physical', 'perfectionist'],
                 difficulty: 'medium',
@@ -1082,7 +1232,7 @@
                 future_potential: 'medium'
             },
             
-            // 音楽系 (25種類)
+            // 音楽系 (25種類) - 年齢範囲修正
             piano: {
                 name: 'ピアノ',
                 description: '指先の器用さと音感を育む楽器の王様',
@@ -1090,12 +1240,38 @@
                 icon: 'fas fa-piano',
                 benefits: ['音感', '指先の器用さ', '集中力', '表現力'],
                 cost: '月額8,000円〜20,000円',
-                ageRange: '3歳〜18歳',
+                ageRange: '4歳〜18歳',
                 timeCommitment: '週1回 30分',
                 traits: ['creative', 'perfectionist'],
                 difficulty: 'medium',
                 continuity_rate: 75,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'ヤマハ音楽教室',
+                        description: '60年以上の実績を誇る音楽教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=ヤマハ音楽教室',
+                        affiliateUrl: 'https://example.com/yamaha-music',
+                        price: '月額7,500円〜',
+                        features: ['グループレッスン', '1歳から', '全国1,200会場']
+                    },
+                    {
+                        title: 'カワイ音楽教室',
+                        description: '個人レッスンで確実な上達をサポート',
+                        imageUrl: 'https://via.placeholder.com/300x150/7c3aed/white?text=カワイ音楽教室',
+                        affiliateUrl: 'https://example.com/kawai-music',
+                        price: '月額8,250円〜',
+                        features: ['個人レッスン', '3歳から', '無料体験レッスン']
+                    },
+                    {
+                        title: 'EYS音楽教室',
+                        description: '大人から子供まで楽しめる音楽教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/f97316/white?text=EYS音楽教室',
+                        affiliateUrl: 'https://example.com/eys-music',
+                        price: '月額12,120円〜',
+                        features: ['楽器プレゼント', '補講無料', 'オールフリー制']
+                    }
+                ]
             },
             violin: {
                 name: 'バイオリン',
@@ -1104,7 +1280,7 @@
                 icon: 'fas fa-violin',
                 benefits: ['音感', '姿勢改善', '集中力', '表現力'],
                 cost: '月額10,000円〜25,000円',
-                ageRange: '4歳〜18歳',
+                ageRange: '5歳〜18歳',
                 timeCommitment: '週1回 30分',
                 traits: ['creative', 'perfectionist'],
                 difficulty: 'hard',
@@ -1126,7 +1302,7 @@
                 future_potential: 'high'
             },
             
-            // 学習・知育系 (20種類)
+            // 学習・知育系 (20種類) - 年齢範囲修正
             programming: {
                 name: 'プログラミング',
                 description: '論理的思考力と創造力を育む現代的なスキル',
@@ -1148,15 +1324,55 @@
                 icon: 'fas fa-globe',
                 benefits: ['国際的コミュニケーション', '異文化理解', '将来性', '自信向上'],
                 cost: '月額6,000円〜12,000円',
-                ageRange: '3歳〜18歳',
+                ageRange: '4歳〜18歳',
                 timeCommitment: '週1回 45分',
                 traits: ['social', 'intellectual'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'very_high'
+                future_potential: 'very_high',
+                affiliateBanners: [
+                    {
+                        title: 'ECCジュニア',
+                        description: '全国10,000教室以上の実績ある英会話教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/2563eb/white?text=ECCジュニア',
+                        affiliateUrl: 'https://example.com/ecc-junior',
+                        price: '月額6,600円〜',
+                        features: ['2歳から', 'ホームティーチャー制', '無料体験レッスン']
+                    },
+                    {
+                        title: 'ペッピーキッズクラブ',
+                        description: '楽しく学べる子供英会話教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/059669/white?text=ペッピーキッズ',
+                        affiliateUrl: 'https://example.com/peppy-kids',
+                        price: '月額7,700円〜',
+                        features: ['1歳から高校生', '外国人講師', 'オリジナル教材']
+                    },
+                    {
+                        title: 'NOVAバイリンガルKIDS',
+                        description: '駅前留学でおなじみNOVAの子供向けコース',
+                        imageUrl: 'https://via.placeholder.com/300x150/7c2d12/white?text=NOVAキッズ',
+                        affiliateUrl: 'https://example.com/nova-kids',
+                        price: '月額8,800円〜',
+                        features: ['外国人講師', '少人数制', 'レベル別クラス']
+                    }
+                ]
+            },
+            abacus: {
+                name: 'そろばん',
+                description: '計算力と集中力を鍛える伝統的な学習法',
+                category: 'study',
+                icon: 'fas fa-calculator',
+                benefits: ['計算力', '集中力', '記憶力', '右脳開発'],
+                cost: '月額4,000円〜8,000円',
+                ageRange: '6歳〜15歳',
+                timeCommitment: '週2回 60分',
+                traits: ['logical', 'perfectionist'],
+                difficulty: 'medium',
+                continuity_rate: 85,
+                future_potential: 'medium'
             },
             
-            // 芸術・創作系 (20種類)
+            // 芸術・創作系 (20種類) - 年齢範囲修正
             art_painting: {
                 name: '絵画教室',
                 description: '自由な発想で絵を描く創造性を育む',
@@ -1164,15 +1380,29 @@
                 icon: 'fas fa-palette',
                 benefits: ['創造力', '表現力', '集中力', '美的感覚'],
                 cost: '月額5,000円〜12,000円',
-                ageRange: '3歳〜18歳',
+                ageRange: '4歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['creative', 'visual'],
                 difficulty: 'easy',
                 continuity_rate: 85,
                 future_potential: 'medium'
             },
+            pottery: {
+                name: '陶芸',
+                description: '土と触れ合いながら作品を作る伝統工芸',
+                category: 'art',
+                icon: 'fas fa-vase',
+                benefits: ['創造力', '集中力', '手先の器用さ', '忍耐力'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'kinesthetic'],
+                difficulty: 'medium',
+                continuity_rate: 75,
+                future_potential: 'medium'
+            },
             
-            // ダンス・パフォーマンス系 (15種類)
+            // ダンス・パフォーマンス系 (15種類) - 年齢範囲修正
             ballet: {
                 name: 'バレエ',
                 description: '優雅さと美しい姿勢を身につける古典舞踊',
@@ -1180,15 +1410,29 @@
                 icon: 'fas fa-shoe-prints',
                 benefits: ['姿勢改善', '柔軟性', '表現力', '優雅さ'],
                 cost: '月額8,000円〜20,000円',
-                ageRange: '3歳〜18歳',
+                ageRange: '4歳〜18歳',
                 timeCommitment: '週1回 60分',
                 traits: ['creative', 'physical'],
                 difficulty: 'medium',
                 continuity_rate: 80,
                 future_potential: 'medium'
             },
+            hip_hop: {
+                name: 'ヒップホップダンス',
+                description: 'かっこよく踊る現代的なストリートダンス',
+                category: 'dance',
+                icon: 'fas fa-headphones',
+                benefits: ['リズム感', '自己表現', '体力向上', '創造力'],
+                cost: '月額5,000円〜12,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'physical'],
+                difficulty: 'medium',
+                continuity_rate: 85,
+                future_potential: 'medium'
+            },
             
-            // 文化・教養系 (12種類)
+            // 文化・教養系 (12種類) - 年齢範囲修正
             tea_ceremony: {
                 name: '茶道',
                 description: '日本の伝統文化で心を整え礼儀を学ぶ',
@@ -1196,12 +1440,54 @@
                 icon: 'fas fa-leaf',
                 benefits: ['礼儀作法', '集中力', '伝統文化', '心の平静'],
                 cost: '月額5,000円〜15,000円',
-                ageRange: '8歳〜18歳',
+                ageRange: '10歳〜18歳',
                 timeCommitment: '週1回 90分',
                 traits: ['cultural', 'perfectionist'],
                 difficulty: 'medium',
                 continuity_rate: 75,
                 future_potential: 'low'
+            },
+            go: {
+                name: '囲碁',
+                description: '戦略的思考力を鍛える古典的なボードゲーム',
+                category: 'culture',
+                icon: 'fas fa-chess',
+                benefits: ['戦略的思考', '集中力', '忍耐力', '論理的思考'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['logical', 'perfectionist'],
+                difficulty: 'medium',
+                continuity_rate: 70,
+                future_potential: 'low'
+            },
+            shogi: {
+                name: '将棋',
+                description: '日本の伝統的な戦略ゲームで思考力を鍛える',
+                category: 'culture',
+                icon: 'fas fa-chess-king',
+                benefits: ['戦略的思考', '集中力', '記憶力', '先読み能力'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['logical', 'perfectionist'],
+                difficulty: 'medium',
+                continuity_rate: 75,
+                future_potential: 'low'
+            },
+            cooking: {
+                name: '料理教室',
+                description: '食材と向き合い創造力と生活力を身につける',
+                category: 'culture',
+                icon: 'fas fa-utensils',
+                benefits: ['生活力', '創造力', '栄養知識', '達成感'],
+                cost: '月額5,000円〜12,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'kinesthetic'],
+                difficulty: 'medium',
+                continuity_rate: 80,
+                future_potential: 'medium'
             }
 
             // Note: この例では代表的なものを示しています。実際には150種類すべてを含めます。
@@ -1443,7 +1729,57 @@
             return profile;
         }
 
+        // Strict age compatibility check
+        function isAgeCompatible(userAge, activityAgeRange) {
+            var ageMap = {
+                '0-1': [0, 1],
+                '2-3': [2, 3], 
+                '4-5': [4, 5],
+                '6-8': [6, 8],
+                '9-11': [9, 11],
+                '12-14': [12, 14],
+                '15-18': [15, 18]
+            };
+            
+            var userAgeRange = ageMap[userAge];
+            if (!userAgeRange) return false;
+            
+            // Parse activity age range more strictly
+            var rangeMatch = activityAgeRange.match(/(\d+)歳.*?(\d+)歳/);
+            var minAge, maxAge;
+            
+            if (rangeMatch) {
+                minAge = parseInt(rangeMatch[1]);
+                maxAge = parseInt(rangeMatch[2]);
+            } else {
+                // Try single age pattern
+                var singleMatch = activityAgeRange.match(/(\d+)歳/);
+                if (singleMatch) {
+                    minAge = parseInt(singleMatch[1]);
+                    maxAge = minAge + 2; // Small range for single age
+                } else {
+                    return false; // Can't parse, not compatible
+                }
+            }
+            
+            // Check if there's any overlap between user age range and activity age range
+            var userMinAge = userAgeRange[0];
+            var userMaxAge = userAgeRange[1];
+            
+            // No overlap means incompatible
+            if (userMaxAge < minAge || userMinAge > maxAge) {
+                return false;
+            }
+            
+            return true;
+        }
+
         function calculateAgeScore(age, ageRange) {
+            // First check strict compatibility
+            if (!isAgeCompatible(age, ageRange)) {
+                return 0; // Completely incompatible
+            }
+            
             var ageMap = {
                 '0-1': 0.5, '2-3': 2.5, '4-5': 4.5, '6-8': 7, 
                 '9-11': 10, '12-14': 13, '15-18': 16.5
@@ -1453,31 +1789,48 @@
             
             // Parse activity age range
             var rangeMatch = ageRange.match(/(\d+)歳.*?(\d+)歳/);
-            if (!rangeMatch) {
-                rangeMatch = ageRange.match(/(\d+)歳/);
-                if (rangeMatch) {
-                    var minAge = parseInt(rangeMatch[1]);
-                    var maxAge = minAge + 15; // Default range
-                } else {
-                    return 50; // Default score if can't parse
-                }
+            var minAge, maxAge;
+            
+            if (rangeMatch) {
+                minAge = parseInt(rangeMatch[1]);
+                maxAge = parseInt(rangeMatch[2]);
             } else {
-                var minAge = parseInt(rangeMatch[1]);
-                var maxAge = parseInt(rangeMatch[2]);
+                var singleMatch = ageRange.match(/(\d+)歳/);
+                if (singleMatch) {
+                    minAge = parseInt(singleMatch[1]);
+                    maxAge = minAge + 2;
+                } else {
+                    return 0; // Can't parse
+                }
             }
             
+            // Calculate score only for compatible ages
             if (userAge >= minAge && userAge <= maxAge) {
-                // Perfect match
+                // Perfect match - calculate optimal position within range
                 var midAge = (minAge + maxAge) / 2;
                 var distance = Math.abs(userAge - midAge);
                 var maxDistance = (maxAge - minAge) / 2;
-                return 100 - (distance / maxDistance) * 30; // 70-100 score
-            } else if (userAge < minAge) {
+                
+                if (maxDistance === 0) {
+                    return 100; // Perfect single age match
+                }
+                
+                return Math.max(70, 100 - (distance / maxDistance) * 30); // 70-100 score
+            }
+            
+            // For compatible but slightly outside optimal range
+            if (userAge < minAge) {
                 var gap = minAge - userAge;
-                return Math.max(0, 70 - gap * 15); // Penalty for being too young
+                if (gap <= 1) {
+                    return 50; // Close enough
+                }
+                return 0; // Too young
             } else {
                 var gap = userAge - maxAge;
-                return Math.max(0, 80 - gap * 10); // Smaller penalty for being older
+                if (gap <= 2) {
+                    return 60; // Older kids can often handle younger activities
+                }
+                return 0; // Too old
             }
         }
 
@@ -1781,7 +2134,7 @@
             return Math.round(average);
         }
 
-        function getCategoryTopActivities(activityScores, categoryScores) {
+        function getCategoryTopActivities(activityScores, categoryScores, userAge) {
             // Sort categories by score
             var sortedCategories = Object.keys(categoryScores)
                 .sort(function(a, b) {
@@ -1791,10 +2144,14 @@
             var result = {};
             
             sortedCategories.forEach(function(category) {
-                // Get activities for this category
+                // Get activities for this category that are age-appropriate
                 var categoryActivities = Object.keys(activities)
                     .filter(function(key) {
-                        return activities[key].category === category;
+                        var activity = activities[key];
+                        // Only include if category matches AND age is compatible AND score is reasonable
+                        return activity.category === category && 
+                               isAgeCompatible(userAge, activity.ageRange) &&
+                               activityScores[key] >= 30; // Minimum threshold for age-appropriate activities
                     })
                     .map(function(key) {
                         return { name: key, score: activityScores[key] };
@@ -1804,7 +2161,8 @@
                     })
                     .slice(0, 3); // Top 3 for each category
 
-                if (categoryActivities.length > 0 && categoryActivities[0].score > 30) {
+                // Only include categories that have age-appropriate activities
+                if (categoryActivities.length > 0) {
                     result[category] = {
                         categoryScore: categoryScores[category],
                         activities: categoryActivities
@@ -2193,7 +2551,7 @@
             debugLog('Calculating high-precision results...');
             
             var scoreResults = calculateActivityScores(appState.answers);
-            var categoryTopActivities = getCategoryTopActivities(scoreResults.activityScores, scoreResults.categoryScores);
+            var categoryTopActivities = getCategoryTopActivities(scoreResults.activityScores, scoreResults.categoryScores, appState.answers.age);
             var personalityType = getPersonalityType(appState.answers);
             var detailedAnalysis = generateDetailedAnalysis(scoreResults.personalityProfile, appState.answers);
             var futurePotential = generateFuturePotential(categoryTopActivities);
@@ -2266,6 +2624,7 @@
                         var activity = activities[activityData.name];
                         if (!activity) return;
                         
+                        var activityKey = activityData.name; // キーを保存
                         var rank = index + 1;
                         var activityCard = document.createElement('div');
                         activityCard.className = 'activity-card bg-white rounded-lg p-4 shadow-md';
@@ -2284,6 +2643,21 @@
                             'low': '📚'
                         };
                         var potentialIcon = potentialIcons[activity.future_potential] || '👍';
+                        
+                        var continuitybadge = '<div class="text-xs text-center bg-blue-100 rounded p-2 mb-2">' +
+                            '<span class="font-medium text-blue-800">適合スコア: ' + Math.round(activityData.score) + '点</span>' +
+                            '</div>';
+                        
+                        var benefitsSection = '<div class="text-xs text-gray-600 mb-3">' +
+                            '<strong>効果:</strong> ' + activity.benefits.slice(0, 2).join(', ') +
+                            '</div>';
+                            
+                        var affiliateButton = '';
+                        if (activity.affiliateBanners && activity.affiliateBanners.length > 0) {
+                            affiliateButton = '<button class="affiliate-btn w-full mt-2" onclick="showAffiliateBanners(\'' + activityKey + '\')">' +
+                                '<i class="fas fa-school mr-1"></i>おすすめの教室を見る' +
+                                '</button>';
+                        }
                         
                         activityCard.innerHTML = 
                             '<div class="flex items-start justify-between mb-3">' +
@@ -2304,12 +2678,9 @@
                             '<div><i class="fas fa-users mr-1"></i>' + activity.ageRange + '</div>' +
                             '<div><i class="fas fa-chart-line mr-1"></i>継続率: ' + (activity.continuity_rate || 70) + '%</div>' +
                             '</div>' +
-                            '<div class="text-xs text-center bg-blue-100 rounded p-2 mb-2">' +
-                            '<span class="font-medium text-blue-800">適合スコア: ' + Math.round(activityData.score) + '点</span>' +
-                            '</div>' +
-                            '<div class="text-xs text-gray-600">' +
-                            '<strong>効果:</strong> ' + activity.benefits.slice(0, 2).join(', ') +
-                            '</div>';
+                            continuitybadge +
+                            benefitsSection +
+                            affiliateButton;
                         
                         activitiesGrid.appendChild(activityCard);
                     });
@@ -2486,6 +2857,66 @@
             showScreen('welcome-screen');
         }
 
+        // Affiliate banner modal functions
+        function showAffiliateBanners(activityKey) {
+            var activity = activities[activityKey];
+            if (!activity || !activity.affiliateBanners || activity.affiliateBanners.length === 0) {
+                return;
+            }
+
+            var modal = document.getElementById('affiliate-modal');
+            var modalTitle = document.getElementById('modal-title');
+            var modalBanners = document.getElementById('modal-banners');
+
+            modalTitle.textContent = activity.name + ' のおすすめ教室';
+            modalBanners.innerHTML = '';
+
+            activity.affiliateBanners.forEach(function(banner) {
+                var bannerElement = document.createElement('div');
+                bannerElement.className = 'affiliate-banner';
+                bannerElement.onclick = function() {
+                    window.open(banner.affiliateUrl, '_blank');
+                };
+
+                bannerElement.innerHTML = 
+                    '<img src="' + banner.imageUrl + '" alt="' + banner.title + '" class="mb-3">' +
+                    '<h4 class="text-lg font-bold text-gray-800 mb-2">' + banner.title + '</h4>' +
+                    '<p class="text-sm text-gray-600 mb-3">' + banner.description + '</p>' +
+                    '<div class="bg-blue-50 rounded-lg p-3 mb-3">' +
+                    '<div class="text-sm font-semibold text-blue-800 mb-2">' +
+                    '<i class="fas fa-yen-sign mr-1"></i>' + banner.price +
+                    '</div>' +
+                    '<div class="flex flex-wrap gap-2">';
+
+                banner.features.forEach(function(feature) {
+                    bannerElement.innerHTML += 
+                        '<span class="bg-white text-blue-600 px-2 py-1 rounded text-xs font-medium">' +
+                        '<i class="fas fa-check mr-1"></i>' + feature +
+                        '</span>';
+                });
+
+                bannerElement.innerHTML += 
+                    '</div>' +
+                    '</div>' +
+                    '<div class="text-center">' +
+                    '<div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-lg font-bold">' +
+                    '<i class="fas fa-external-link-alt mr-2"></i>詳細を見る・申し込む' +
+                    '</div>' +
+                    '</div>';
+
+                modalBanners.appendChild(bannerElement);
+            });
+
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideAffiliateModal() {
+            var modal = document.getElementById('affiliate-modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
         // Event listeners
         function initializeEventListeners() {
             debugLog('Initializing event listeners...');
@@ -2556,6 +2987,30 @@
                 });
             }
 
+            // Affiliate modal event listeners
+            var closeModalBtn = document.getElementById('close-modal');
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', function() {
+                    hideAffiliateModal();
+                });
+            }
+
+            var affiliateModal = document.getElementById('affiliate-modal');
+            if (affiliateModal) {
+                affiliateModal.addEventListener('click', function(e) {
+                    if (e.target === affiliateModal) {
+                        hideAffiliateModal();
+                    }
+                });
+            }
+
+            // ESC key to close modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    hideAffiliateModal();
+                }
+            });
+
             debugLog('Event listeners initialized');
         }
 
@@ -2595,6 +3050,9 @@
         }
 
         debugLog('High-precision script loaded successfully with ' + Object.keys(activities).length + ' activities in database');
+
+        // Make functions global for HTML onclick handlers
+        window.showAffiliateBanners = showAffiliateBanners;
     </script>
 </body>
 </html>
