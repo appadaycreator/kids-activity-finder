@@ -1,26 +1,28 @@
 # Kids Activity Finder
 
 ## プロジェクト概要
-Kids Activity Finderは、子供向けのアクティビティを見つけるためのウェブアプリケーションです。親御さんが子供の年齢や興味に合わせて適切なアクティビティを探すことができるプラットフォームを提供します。
+Kids Activity Finderは、子供の習い事診断を行うウェブアプリケーションです。性格分析と適性診断を通じて、0歳から18歳までの子供に最適な習い事を提案します。100種類以上の習い事から、お子様の性格や興味に合わせた最適な選択肢をご提案します。
 
-## 機能
-- 年齢別アクティビティ検索
-- カテゴリー別アクティビティ検索
-- 地域別アクティビティ検索
-- お気に入りアクティビティの保存
-- アクティビティの詳細情報表示
+## 主な機能
+- 性格分析と適性診断（6段階の質問）
+- 100種類以上の習い事から最適な選択肢を提案
+- カテゴリ別の詳細レポート
+- 適性チャートによる視覚的な分析
+- 診断結果の保存機能
 
 ## 技術スタック
 - HTML5
-- CSS3
+- CSS3（Tailwind CSS）
 - JavaScript
-- Progressive Web App (PWA)対応
-- Service Workerによるオフライン対応
+- Chart.js（グラフ表示）
+- Font Awesome（アイコン）
+- Progressive Web App（PWA）対応
+- Google Analytics（アクセス解析）
 
 ## プロジェクト構造
 ```
 kids-activity-finder/
-├── index.html          # メインページ
+├── index.html          # メインページ（診断アプリケーション）
 ├── contact.html        # お問い合わせページ
 ├── disclaimer.html     # 免責事項
 ├── privacy-policy.html # プライバシーポリシー
@@ -34,7 +36,7 @@ kids-activity-finder/
 ## セットアップ方法
 1. リポジトリをクローン
 ```bash
-git clone https://github.com/yourusername/kids-activity-finder.git
+git clone https://github.com/appadaycreator/kids-activity-finder.git
 ```
 
 2. プロジェクトディレクトリに移動
@@ -68,3 +70,5 @@ python -m http.server 8000
 
 ## 更新履歴
 - 2024/03/xx: プロジェクト初期化
+- 2024/03/xx: 100種類以上の習い事に対応
+- 2024/03/xx: 0歳から18歳までの年齢対応
