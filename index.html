@@ -344,10 +344,25 @@
                 <!-- Action Buttons -->
                 <div class="text-center space-y-4">
                     <div class="flex flex-wrap justify-center gap-4">
-                        <button id="share-btn" class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-medium">
-                            <i class="fab fa-twitter mr-2"></i>結果をシェア
+                        <button id="copy-link-btn" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium">
+                            <i class="fas fa-link mr-2"></i>リンクをコピー
                         </button>
-                        <button id="save-btn" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-medium">
+                        <button id="share-x-btn" class="bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-lg font-medium">
+                            <i class="fab fa-x-twitter mr-2"></i>X でシェア
+                        </button>
+                        <button id="share-instagram-btn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-medium">
+                            <i class="fab fa-instagram mr-2"></i>Instagram
+                        </button>
+                        <button id="share-facebook-btn" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium">
+                            <i class="fab fa-facebook-f mr-2"></i>Facebook
+                        </button>
+                        <button id="share-threads-btn" class="bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-lg font-medium">
+                            <i class="fab fa-threads mr-2"></i>Threads
+                        </button>
+                        <button id="share-bluesky-btn" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-medium">
+                            <i class="fas fa-cloud mr-2"></i>Bluesky
+                        </button>
+                        <button id="save-btn" class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-medium">
                             <i class="fas fa-save mr-2"></i>結果を保存
                         </button>
                         <button id="compare-btn" class="bg-purple-500 hover:bg-purple-600 text-white py-3 px-6 rounded-lg font-medium">
@@ -646,7 +661,25 @@
                 traits: ['sensory', 'gentle'],
                 difficulty: 'easy',
                 continuity_rate: 90,
-                future_potential: 'medium'
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: 'ベビーマッサージ教室 momo',
+                        description: '助産師による安心のベビーマッサージ',
+                        imageUrl: 'https://via.placeholder.com/300x150/ec4899/white?text=ベビーマッサージmomo',
+                        affiliateUrl: 'https://example.com/baby-massage-momo',
+                        price: '1回3,500円〜',
+                        features: ['助産師指導', '個別対応', '出張レッスン可']
+                    },
+                    {
+                        title: 'カルチャーセンター ベビーマッサージ',
+                        description: '全国のカルチャーセンターで開催',
+                        imageUrl: 'https://via.placeholder.com/300x150/8b5cf6/white?text=カルチャーセンター',
+                        affiliateUrl: 'https://example.com/culture-center-massage',
+                        price: '月額4,000円〜',
+                        features: ['全国展開', 'グループレッスン', '親子の交流']
+                    }
+                ]
             },
             baby_english: {
                 name: 'ベビー英語',
@@ -1072,7 +1105,33 @@
                 traits: ['physical', 'individual'],
                 difficulty: 'medium',
                 continuity_rate: 85,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'コナミスポーツクラブ',
+                        description: '全国展開の総合スポーツクラブ',
+                        imageUrl: 'https://via.placeholder.com/300x150/4f46e5/white?text=コナミスポーツ',
+                        affiliateUrl: 'https://example.com/konami-swimming',
+                        price: '月額8,800円〜',
+                        features: ['全国200店舗', '年齢別クラス', '個人指導あり']
+                    },
+                    {
+                        title: 'セントラルスポーツ',
+                        description: '水泳専門指導で確実な上達',
+                        imageUrl: 'https://via.placeholder.com/300x150/059669/white?text=セントラルスポーツ',
+                        affiliateUrl: 'https://example.com/central-swimming',
+                        price: '月額7,700円〜',
+                        features: ['段階別指導', '進級テスト', '選手育成コース']
+                    },
+                    {
+                        title: 'ルネサンス スイミングスクール',
+                        description: '科学的指導法で効率的な上達',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=ルネサンス',
+                        affiliateUrl: 'https://example.com/renaissance-swimming',
+                        price: '月額8,250円〜',
+                        features: ['科学的指導', '映像分析', '無料送迎バス']
+                    }
+                ]
             },
             baseball: {
                 name: '野球',
@@ -1201,7 +1260,25 @@
                 traits: ['cultural', 'physical'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'medium'
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: '講道館柔道 認定道場',
+                        description: '伝統ある講道館の認定を受けた正統派道場',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=講道館認定道場',
+                        affiliateUrl: 'https://example.com/kodokan-judo',
+                        price: '月額6,600円〜',
+                        features: ['講道館認定', '段位取得可', '礼儀指導重視']
+                    },
+                    {
+                        title: 'コナミスポーツクラブ 柔道スクール',
+                        description: '安全で楽しく学べる柔道教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/4f46e5/white?text=コナミ柔道',
+                        affiliateUrl: 'https://example.com/konami-judo',
+                        price: '月額8,250円〜',
+                        features: ['安全指導', '年齢別クラス', '体験レッスン']
+                    }
+                ]
             },
             kendo: {
                 name: '剣道',
@@ -1285,7 +1362,25 @@
                 traits: ['creative', 'perfectionist'],
                 difficulty: 'hard',
                 continuity_rate: 70,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'スズキ・メソード バイオリン教室',
+                        description: '世界的に有名なスズキメソッドで指導',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=スズキメソッド',
+                        affiliateUrl: 'https://example.com/suzuki-violin',
+                        price: '月額12,000円〜',
+                        features: ['スズキメソッド', '国際的指導法', '3歳から受講可']
+                    },
+                    {
+                        title: '桐朋学園大学音楽学部附属 子供のための音楽教室',
+                        description: '音大附属の本格的バイオリン教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/7c3aed/white?text=桐朋音楽教室',
+                        affiliateUrl: 'https://example.com/toho-violin',
+                        price: '月額18,000円〜',
+                        features: ['音大附属', 'プロ指導', '高度な技術習得']
+                    }
+                ]
             },
             guitar: {
                 name: 'ギター',
@@ -1299,7 +1394,25 @@
                 traits: ['creative', 'social'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'ヤマハ音楽教室 ギターコース',
+                        description: 'アコースティックからエレキまで対応',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=ヤマハギター',
+                        affiliateUrl: 'https://example.com/yamaha-guitar',
+                        price: '月額8,800円〜',
+                        features: ['グループレッスン', '楽曲演奏重視', '全国1,200会場']
+                    },
+                    {
+                        title: 'EYS音楽教室 ギター科',
+                        description: 'ギタープレゼントの音楽教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/f97316/white?text=EYSギター',
+                        affiliateUrl: 'https://example.com/eys-guitar',
+                        price: '月額12,120円〜',
+                        features: ['ギタープレゼント', '個人レッスン', '補講無料']
+                    }
+                ]
             },
             
             // 学習・知育系 (20種類) - 年齢範囲修正
@@ -1385,7 +1498,25 @@
                 traits: ['creative', 'visual'],
                 difficulty: 'easy',
                 continuity_rate: 85,
-                future_potential: 'medium'
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: 'アトリエ・エトワール',
+                        description: '子供の感性を大切にする絵画教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/f59e0b/white?text=アトリエエトワール',
+                        affiliateUrl: 'https://example.com/atelier-etoile',
+                        price: '月額7,700円〜',
+                        features: ['少人数制', '個性重視', '作品展示会']
+                    },
+                    {
+                        title: 'カルチャーセンター 絵画教室',
+                        description: '基礎から学べる絵画レッスン',
+                        imageUrl: 'https://via.placeholder.com/300x150/10b981/white?text=カルチャー絵画',
+                        affiliateUrl: 'https://example.com/culture-art',
+                        price: '月額5,500円〜',
+                        features: ['基礎重視', '画材貸出', '振替レッスン可']
+                    }
+                ]
             },
             pottery: {
                 name: '陶芸',
@@ -1415,7 +1546,25 @@
                 traits: ['creative', 'physical'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'medium'
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: 'チャコット・カルチャースタジオ',
+                        description: 'バレエ用品で有名なチャコットのスタジオ',
+                        imageUrl: 'https://via.placeholder.com/300x150/ec4899/white?text=チャコット',
+                        affiliateUrl: 'https://example.com/chacott-ballet',
+                        price: '月額9,900円〜',
+                        features: ['プロ講師陣', '本格レッスン', '発表会あり']
+                    },
+                    {
+                        title: 'スタジオマーティ',
+                        description: '3歳から始められるバレエ教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/8b5cf6/white?text=スタジオマーティ',
+                        affiliateUrl: 'https://example.com/studio-marty',
+                        price: '月額7,500円〜',
+                        features: ['年齢別クラス', 'RAD認定', '体験レッスン無料']
+                    }
+                ]
             },
             hip_hop: {
                 name: 'ヒップホップダンス',
@@ -1429,7 +1578,25 @@
                 traits: ['creative', 'physical'],
                 difficulty: 'medium',
                 continuity_rate: 85,
-                future_potential: 'medium'
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: 'EXPG STUDIO',
+                        description: 'EXILE・三代目JSBを輩出したダンススクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=EXPG',
+                        affiliateUrl: 'https://example.com/expg-studio',
+                        price: '月額11,000円〜',
+                        features: ['プロ輩出実績', 'オーディション', '本格指導']
+                    },
+                    {
+                        title: 'NOAダンス教室',
+                        description: '都内最大級のダンススタジオ',
+                        imageUrl: 'https://via.placeholder.com/300x150/8b5cf6/white?text=NOAダンス',
+                        affiliateUrl: 'https://example.com/noa-dance',
+                        price: '月額8,800円〜',
+                        features: ['都内12校', '超入門クラス', '体験レッスン']
+                    }
+                ]
             },
             
             // 文化・教養系 (12種類) - 年齢範囲修正
@@ -1445,7 +1612,25 @@
                 traits: ['cultural', 'perfectionist'],
                 difficulty: 'medium',
                 continuity_rate: 75,
-                future_potential: 'low'
+                future_potential: 'low',
+                affiliateBanners: [
+                    {
+                        title: '表千家茶道教室',
+                        description: '伝統ある表千家流の正式な茶道指導',
+                        imageUrl: 'https://via.placeholder.com/300x150/059669/white?text=表千家',
+                        affiliateUrl: 'https://example.com/omotesenke',
+                        price: '月額8,000円〜',
+                        features: ['表千家流', '免状取得可', '和室での本格指導']
+                    },
+                    {
+                        title: 'カルチャーセンター 茶道講座',
+                        description: '気軽に始められる茶道入門',
+                        imageUrl: 'https://via.placeholder.com/300x150/7c3aed/white?text=カルチャー茶道',
+                        affiliateUrl: 'https://example.com/culture-tea',
+                        price: '月額6,000円〜',
+                        features: ['初心者歓迎', '道具貸出', '月2回レッスン']
+                    }
+                ]
             },
             go: {
                 name: '囲碁',
@@ -1459,7 +1644,25 @@
                 traits: ['logical', 'perfectionist'],
                 difficulty: 'medium',
                 continuity_rate: 70,
-                future_potential: 'low'
+                future_potential: 'low',
+                affiliateBanners: [
+                    {
+                        title: '日本棋院 囲碁教室',
+                        description: 'プロ棋士による本格指導',
+                        imageUrl: 'https://via.placeholder.com/300x150/f59e0b/white?text=日本棋院',
+                        affiliateUrl: 'https://example.com/nihon-kiin',
+                        price: '月額6,600円〜',
+                        features: ['プロ棋士指導', '段級位認定', '大会参加可']
+                    },
+                    {
+                        title: '子供囲碁教室 石音',
+                        description: '子供専門の囲碁教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/10b981/white?text=石音',
+                        affiliateUrl: 'https://example.com/sekion-go',
+                        price: '月額4,400円〜',
+                        features: ['子供専門', '少人数制', '楽しく学習']
+                    }
+                ]
             },
             shogi: {
                 name: '将棋',
@@ -1473,7 +1676,25 @@
                 traits: ['logical', 'perfectionist'],
                 difficulty: 'medium',
                 continuity_rate: 75,
-                future_potential: 'low'
+                future_potential: 'low',
+                affiliateBanners: [
+                    {
+                        title: '日本将棋連盟 子供教室',
+                        description: 'プロ棋士による本格将棋指導',
+                        imageUrl: 'https://via.placeholder.com/300x150/dc2626/white?text=将棋連盟',
+                        affiliateUrl: 'https://example.com/shogi-renmei',
+                        price: '月額5,500円〜',
+                        features: ['プロ棋士指導', '級位認定', '大会参加']
+                    },
+                    {
+                        title: 'いつつ将棋教室',
+                        description: '子供向け将棋教室の専門スクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/8b5cf6/white?text=いつつ',
+                        affiliateUrl: 'https://example.com/itsutsu-shogi',
+                        price: '月額6,600円〜',
+                        features: ['子供専門', 'オンライン対応', '楽しく学習']
+                    }
+                ]
             },
             cooking: {
                 name: '料理教室',
@@ -1487,7 +1708,25 @@
                 traits: ['creative', 'kinesthetic'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'medium'
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: 'ABC Cooking Studio キッズ',
+                        description: '子供向け料理・お菓子教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/f97316/white?text=ABCキッズ',
+                        affiliateUrl: 'https://example.com/abc-kids',
+                        price: '1回4,500円〜',
+                        features: ['全国125スタジオ', '親子参加可', '安全第一']
+                    },
+                    {
+                        title: 'ホームメイドクッキング 子供クラス',
+                        description: 'パン・ケーキ・料理を総合的に学習',
+                        imageUrl: 'https://via.placeholder.com/300x150/10b981/white?text=ホームメイド',
+                        affiliateUrl: 'https://example.com/homemade-kids',
+                        price: '月額6,600円〜',
+                        features: ['総合料理', '基礎から応用', '季節の料理']
+                    }
+                ]
             }
 
             // Note: この例では代表的なものを示しています。実際には150種類すべてを含めます。
@@ -2764,34 +3003,90 @@
             }
         }
 
-        function shareResult() {
-            if (!navigator.share) {
-                alert('お使いのブラウザではシェア機能が利用できません。');
-                return;
+        // Share functions
+        function copyResultLink() {
+            var url = window.location.href;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(function() {
+                    alert('リンクをクリップボードにコピーしました！');
+                });
+            } else {
+                // Fallback for non-secure contexts
+                var textArea = document.createElement('textarea');
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('リンクをクリップボードにコピーしました！');
+                } catch (err) {
+                    alert('コピーに失敗しました。手動でURLをコピーしてください。');
+                }
+                document.body.removeChild(textArea);
             }
+        }
 
-            const result = appState.result;
-            if (!result) return;
-
-            const topCategory = Object.keys(result.categoryTopActivities)[0];
-            const topCategoryName = categoryLabels[topCategory] || topCategory;
-            const topActivity = result.categoryTopActivities[topCategory].activities[0];
-            const activityName = activities[topActivity.name] ? activities[topActivity.name].name : topActivity.name;
+        function shareToX() {
+            if (!appState.result) return;
             
-            const shareText = `【高精度AI習い事診断結果】\n\n適合率: ${result.overallMatchRate}%\n最適カテゴリ: ${topCategoryName}\nおすすめ: ${activityName}\n性格: ${result.personalityType}\n\n150種類から高精度分析！\nhttps://appadaycreator.github.io/kids-activity-finder/`;
+            var topCategory = Object.keys(appState.result.categoryTopActivities)[0];
+            var topCategoryName = categoryLabels[topCategory] || topCategory;
+            var topActivity = appState.result.categoryTopActivities[topCategory].activities[0];
+            var activityName = activities[topActivity.name] ? activities[topActivity.name].name : topActivity.name;
+            
+            var text = `【高精度AI習い事診断結果】\n\n適合率: ${appState.result.overallMatchRate}%\n最適カテゴリ: ${topCategoryName}\nおすすめ: ${activityName}\n性格: ${appState.result.personalityType}\n\n150種類から高精度分析！\n`;
+            var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(window.location.href);
+            window.open(url, '_blank');
+        }
 
-            navigator.share({
-                title: '高精度子供習い事診断結果',
-                text: shareText,
-                url: 'https://appadaycreator.github.io/kids-activity-finder/'
-            })
-            .then(() => {
-                debugLog('Share successful');
-            })
-            .catch((error) => {
-                debugLog('Share failed: ' + error);
-                alert('シェアに失敗しました。');
-            });
+        function shareToInstagram() {
+            // Instagram doesn't support direct sharing via URL, so we'll copy text and guide user
+            var topCategory = Object.keys(appState.result.categoryTopActivities)[0];
+            var topCategoryName = categoryLabels[topCategory] || topCategory;
+            var topActivity = appState.result.categoryTopActivities[topCategory].activities[0];
+            var activityName = activities[topActivity.name] ? activities[topActivity.name].name : topActivity.name;
+            
+            var text = `【高精度AI習い事診断結果】\n\n適合率: ${appState.result.overallMatchRate}%\n最適カテゴリ: ${topCategoryName}\nおすすめ: ${activityName}\n性格: ${appState.result.personalityType}\n\n150種類から高精度分析！\n${window.location.href}`;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('テキストをコピーしました！\nInstagramを開いて投稿に貼り付けてください。');
+                    window.open('https://www.instagram.com/', '_blank');
+                });
+            } else {
+                alert('Instagramアプリを開いて、以下のテキストを投稿してください：\n\n' + text);
+            }
+        }
+
+        function shareToFacebook() {
+            var url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
+            window.open(url, '_blank');
+        }
+
+        function shareToThreads() {
+            if (!appState.result) return;
+            
+            var topCategory = Object.keys(appState.result.categoryTopActivities)[0];
+            var topCategoryName = categoryLabels[topCategory] || topCategory;
+            var topActivity = appState.result.categoryTopActivities[topCategory].activities[0];
+            var activityName = activities[topActivity.name] ? activities[topActivity.name].name : topActivity.name;
+            
+            var text = `【高精度AI習い事診断結果】\n\n適合率: ${appState.result.overallMatchRate}%\n最適カテゴリ: ${topCategoryName}\nおすすめ: ${activityName}\n性格: ${appState.result.personalityType}\n\n150種類から高精度分析！\n`;
+            var url = 'https://threads.net/intent/post?text=' + encodeURIComponent(text + window.location.href);
+            window.open(url, '_blank');
+        }
+
+        function shareToBluesky() {
+            if (!appState.result) return;
+            
+            var topCategory = Object.keys(appState.result.categoryTopActivities)[0];
+            var topCategoryName = categoryLabels[topCategory] || topCategory;
+            var topActivity = appState.result.categoryTopActivities[topCategory].activities[0];
+            var activityName = activities[topActivity.name] ? activities[topActivity.name].name : topActivity.name;
+            
+            var text = `【高精度AI習い事診断結果】\n\n適合率: ${appState.result.overallMatchRate}%\n最適カテゴリ: ${topCategoryName}\nおすすめ: ${activityName}\n性格: ${appState.result.personalityType}\n\n150種類から高精度分析！\n`;
+            var url = 'https://bsky.app/intent/compose?text=' + encodeURIComponent(text + window.location.href);
+            window.open(url, '_blank');
         }
 
         function showHistory() {
@@ -2955,6 +3250,55 @@
                 });
             }
 
+            // New share buttons
+            var copyLinkBtn = document.getElementById('copy-link-btn');
+            if (copyLinkBtn) {
+                copyLinkBtn.addEventListener('click', function() {
+                    debugLog('Copy link button clicked');
+                    copyResultLink();
+                });
+            }
+
+            var shareXBtn = document.getElementById('share-x-btn');
+            if (shareXBtn) {
+                shareXBtn.addEventListener('click', function() {
+                    debugLog('Share X button clicked');
+                    shareToX();
+                });
+            }
+
+            var shareInstagramBtn = document.getElementById('share-instagram-btn');
+            if (shareInstagramBtn) {
+                shareInstagramBtn.addEventListener('click', function() {
+                    debugLog('Share Instagram button clicked');
+                    shareToInstagram();
+                });
+            }
+
+            var shareFacebookBtn = document.getElementById('share-facebook-btn');
+            if (shareFacebookBtn) {
+                shareFacebookBtn.addEventListener('click', function() {
+                    debugLog('Share Facebook button clicked');
+                    shareToFacebook();
+                });
+            }
+
+            var shareThreadsBtn = document.getElementById('share-threads-btn');
+            if (shareThreadsBtn) {
+                shareThreadsBtn.addEventListener('click', function() {
+                    debugLog('Share Threads button clicked');
+                    shareToThreads();
+                });
+            }
+
+            var shareBlueskyBtn = document.getElementById('share-bluesky-btn');
+            if (shareBlueskyBtn) {
+                shareBlueskyBtn.addEventListener('click', function() {
+                    debugLog('Share Bluesky button clicked');
+                    shareToBluesky();
+                });
+            }
+
             var saveBtn = document.getElementById('save-btn');
             if (saveBtn) {
                 saveBtn.addEventListener('click', function() {
@@ -3004,10 +3348,18 @@
                 });
             }
 
-            // ESC key to close modal
+            // ESC key to close modal and Enter key for next question
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     hideAffiliateModal();
+                } else if (e.key === 'Enter') {
+                    // Check if we're on a question screen and next button is enabled
+                    var questionScreen = document.getElementById('question-screen');
+                    var nextBtn = document.getElementById('next-btn');
+                    if (questionScreen && !questionScreen.classList.contains('hidden') && 
+                        nextBtn && !nextBtn.disabled) {
+                        nextQuestion();
+                    }
                 }
             });
 
