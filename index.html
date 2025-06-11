@@ -819,7 +819,17 @@
                 traits: ['nature', 'explorer'],
                 difficulty: 'medium',
                 continuity_rate: 85,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: '森のようちえん全国ネットワーク',
+                        description: '自然体験を重視した保育を全国で展開',
+                        imageUrl: 'https://via.placeholder.com/300x150/16a34a/white?text=森のようちえん',
+                        affiliateUrl: 'https://example.com/forest-kindergarten',
+                        price: '月額9,000円〜',
+                        features: ['自然体験', '屋外活動', '少人数制']
+                    }
+                ]
             },
 
             // 最新テクノロジー・eスポーツ系 (15種類)
@@ -889,7 +899,17 @@
                 traits: ['competitive', 'logical'],
                 difficulty: 'medium',
                 continuity_rate: 85,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'eスポーツアカデミー',
+                        description: 'プロゲーマーを目指す子供向け本格スクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/2563eb/white?text=eスポーツアカデミー',
+                        affiliateUrl: 'https://example.com/esports-academy',
+                        price: '月額12,000円〜',
+                        features: ['プロ講師', '最新設備', '大会参加サポート']
+                    }
+                ]
             },
             drone_pilot: {
                 name: 'ドローン操縦',
@@ -903,7 +923,17 @@
                 traits: ['technology', 'visual'],
                 difficulty: 'medium',
                 continuity_rate: 80,
-                future_potential: 'high'
+                future_potential: 'high',
+                affiliateBanners: [
+                    {
+                        title: 'ドローンスクールジャパン',
+                        description: '国内最大規模のドローン専門スクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/4b5563/white?text=DSJ',
+                        affiliateUrl: 'https://example.com/drone-school-japan',
+                        price: '月額15,000円〜',
+                        features: ['国家資格対応', '空撮実習', '機体レンタル']
+                    }
+                ]
             },
             youtuber_creator: {
                 name: 'YouTuber・動画制作',
@@ -917,7 +947,17 @@
                 traits: ['creative', 'social'],
                 difficulty: 'medium',
                 continuity_rate: 85,
-                future_potential: 'very_high'
+                future_potential: 'very_high',
+                affiliateBanners: [
+                    {
+                        title: '動画クリエイターズアカデミー',
+                        description: 'YouTuberを目指す子供向け専門スクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/ea580c/white?text=VCA',
+                        affiliateUrl: 'https://example.com/video-academy',
+                        price: '月額11,000円〜',
+                        features: ['編集技術', '企画力育成', '発表会']
+                    }
+                ]
             },
             game_development: {
                 name: 'ゲーム開発',
@@ -931,7 +971,17 @@
                 traits: ['creative', 'logical'],
                 difficulty: 'hard',
                 continuity_rate: 75,
-                future_potential: 'very_high'
+                future_potential: 'very_high',
+                affiliateBanners: [
+                    {
+                        title: 'Unityゲームクリエイター講座',
+                        description: 'ゲーム開発に必須のUnityを学ぶ',
+                        imageUrl: 'https://via.placeholder.com/300x150/047857/white?text=Unity\u8b1b\u5ea7',
+                        affiliateUrl: 'https://example.com/unity-game',
+                        price: '月額15,000円〜',
+                        features: ['本格カリキュラム', 'オンライン対応', '作品制作']
+                    }
+                ]
             },
             vr_ar_creation: {
                 name: 'VR・AR制作',
@@ -1595,6 +1645,64 @@
                         affiliateUrl: 'https://example.com/noa-dance',
                         price: '月額8,800円〜',
                         features: ['都内12校', '超入門クラス', '体験レッスン']
+                    }
+                ]
+            },
+
+            theater_acting: {
+                name: '演劇',
+                description: '演技力と表現力を学ぶ舞台芸術',
+                category: 'performance',
+                icon: 'fas fa-theater-masks',
+                benefits: ['表現力', '想像力', '協調性', '自信'],
+                cost: '月額7,000円〜15,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'social'],
+                difficulty: 'medium',
+                continuity_rate: 80,
+                future_potential: 'medium',
+                affiliateBanners: [
+                    {
+                        title: '劇団ひまわり',
+                        description: '子供向け演劇スクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/1d4ed8/white?text=劇団ひまわり',
+                        affiliateUrl: 'https://example.com/himawari',
+                        price: '月額10,000円〜',
+                        features: ['実践レッスン', '全国公演', 'オーディション指導']
+                    },
+                    {
+                        title: 'テアトルアカデミー',
+                        description: '芸能界を目指す子供たちのための総合スクール',
+                        imageUrl: 'https://via.placeholder.com/300x150/9333ea/white?text=テアトルアカデミー',
+                        affiliateUrl: 'https://example.com/theatre-academy',
+                        price: '月額12,000円〜',
+                        features: ['発声指導', '演技基礎', '発表会']
+                    }
+                ]
+            },
+
+            magic: {
+                name: 'マジック',
+                description: '手品のテクニックと人を楽しませる力を学ぶ',
+                category: 'performance',
+                icon: 'fas fa-hat-wizard',
+                benefits: ['表現力', '手先の器用さ', 'コミュニケーション', '驚き'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '7歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['creative', 'social'],
+                difficulty: 'medium',
+                continuity_rate: 70,
+                future_potential: 'low',
+                affiliateBanners: [
+                    {
+                        title: 'マジック教室 MagicLand',
+                        description: '初心者からプロ志望まで学べる手品教室',
+                        imageUrl: 'https://via.placeholder.com/300x150/f43f5e/white?text=MagicLand',
+                        affiliateUrl: 'https://example.com/magicland',
+                        price: '月額7,500円〜',
+                        features: ['道具貸出', 'ステージ発表', '少人数制']
                     }
                 ]
             },
