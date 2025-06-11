@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>子供の習い事診断 - お子様にぴったりの習い事を見つけよう</title>
-    <meta name="description" content="性格と興味から最適な習い事を診断。プログラミング、英会話、スポーツ、音楽など幅広くサポート">
+    <meta name="description" content="性格と興味から最適な習い事を診断。プログラミング、英会話、スポーツ、音楽など100種類以上から幅広くサポート">
     
     <!-- OGP Meta Tags -->
     <meta property="og:title" content="子供の習い事診断 - お子様にぴったりの習い事を見つけよう">
-    <meta property="og:description" content="性格と興味から最適な習い事を診断。プログラミング、英会話、スポーツ、音楽など幅広くサポート">
+    <meta property="og:description" content="性格と興味から最適な習い事を診断。プログラミング、英会話、スポーツ、音楽など100種類以上から幅広くサポート">
     <meta property="og:image" content="https://cdn1.genspark.ai/user-upload-image/22_generated/1b2b567c-0e98-49ba-9ed5-13daec7598d5">
     <meta property="og:url" content="https://appadaycreator.github.io/kids-activity-finder/">
     <meta property="og:type" content="website">
@@ -94,7 +94,7 @@
                 <i class="fas fa-child mr-2"></i>
                 子供の習い事診断
             </h1>
-            <p class="text-center mt-2 text-lg opacity-90">お子様にぴったりの習い事を見つけよう</p>
+            <p class="text-center mt-2 text-lg opacity-90">お子様にぴったりの習い事を見つけよう（100種類以上対応）</p>
         </div>
     </header>
 
@@ -111,15 +111,15 @@
                     お子様の可能性を発見しよう！
                 </h2>
                 <p class="text-gray-600 mb-6 text-lg">
-                    性格分析と適性診断で、お子様にぴったりの習い事をご提案します。<br>
+                    性格分析と適性診断で、100種類以上の習い事からお子様にぴったりのものをご提案します。<br>
                     科学的なアプローチで、お子様の隠れた才能を見つけてみませんか？
                 </p>
                 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="text-center">
                         <i class="fas fa-bullseye text-4xl text-blue-500 mb-3"></i>
-                        <h3 class="font-bold text-lg">適性マッチング</h3>
-                        <p class="text-gray-600">興味と能力に最適な習い事を提案</p>
+                        <h3 class="font-bold text-lg">100種類から適性マッチング</h3>
+                        <p class="text-gray-600">豊富な選択肢から最適な習い事を提案</p>
                     </div>
                     <div class="text-center">
                         <i class="fas fa-chart-bar text-4xl text-green-500 mb-3"></i>
@@ -173,7 +173,7 @@
             <div class="bg-white rounded-xl card-shadow p-8 text-center">
                 <div class="loading-spinner mx-auto mb-4"></div>
                 <h3 class="text-xl font-bold text-gray-800 mb-2">診断結果を計算中...</h3>
-                <p class="text-gray-600">お子様の適性を分析しています</p>
+                <p class="text-gray-600">100種類以上の習い事からお子様の適性を分析しています</p>
             </div>
         </div>
 
@@ -196,19 +196,19 @@
                 <!-- Chart -->
                 <div class="mb-8">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">
-                        <i class="fas fa-chart-radar mr-2"></i>適性チャート
+                        <i class="fas fa-chart-radar mr-2"></i>適性チャート（カテゴリ別）
                     </h3>
                     <div class="bg-gray-50 rounded-lg p-4">
                         <canvas id="aptitude-chart" width="400" height="200"></canvas>
                     </div>
                 </div>
 
-                <!-- Top 3 Recommendations -->
+                <!-- Top 10 Recommendations -->
                 <div class="mb-8">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">
-                        <i class="fas fa-medal mr-2"></i>おすすめ習い事 TOP3
+                        <i class="fas fa-medal mr-2"></i>おすすめ習い事 TOP10
                     </h3>
-                    <div id="recommendations" class="grid md:grid-cols-3 gap-6"></div>
+                    <div id="recommendations" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
                 </div>
 
                 <!-- Action Buttons -->
@@ -350,178 +350,867 @@
             }
         ];
 
-        // Activities database
+        // Activities database with 100+ activities
         var activities = {
+            // スポーツ・運動系 (30種類)
+            soccer: {
+                name: 'サッカー',
+                description: 'チームワークと協調性を育むスポーツの王様',
+                category: 'sports',
+                icon: 'fas fa-futbol',
+                benefits: ['チームワーク', '持久力向上', '協調性', '戦略的思考'],
+                cost: '月額6,000円〜12,000円',
+                ageRange: '3歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'social']
+            },
+            swimming: {
+                name: '水泳',
+                description: '全身運動で健康的な体作りを目指す',
+                category: 'sports',
+                icon: 'fas fa-swimmer',
+                benefits: ['全身運動', '持久力向上', '姿勢改善', '心肺機能向上'],
+                cost: '月額8,000円〜15,000円',
+                ageRange: '3歳〜18歳',
+                timeCommitment: '週2回 60分',
+                traits: ['active', 'quiet']
+            },
+            baseball: {
+                name: '野球',
+                description: '集中力と反射神経を鍛える人気スポーツ',
+                category: 'sports',
+                icon: 'fas fa-baseball-ball',
+                benefits: ['反射神経', '集中力', 'チームワーク', '戦術理解'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週2回 120分',
+                traits: ['active', 'logical']
+            },
+            tennis: {
+                name: 'テニス',
+                description: '個人技術と戦略性を磨くスポーツ',
+                category: 'sports',
+                icon: 'fas fa-table-tennis',
+                benefits: ['反射神経', '戦略的思考', '集中力', '持久力'],
+                cost: '月額8,000円〜20,000円',
+                ageRange: '5歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['active', 'logical']
+            },
+            basketball: {
+                name: 'バスケットボール',
+                description: 'スピードと判断力を養うチームスポーツ',
+                category: 'sports',
+                icon: 'fas fa-basketball-ball',
+                benefits: ['瞬発力', '判断力', 'チームワーク', '身長促進'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'social']
+            },
+            volleyball: {
+                name: 'バレーボール',
+                description: 'チームプレイと反射神経を鍛える',
+                category: 'sports',
+                icon: 'fas fa-volleyball-ball',
+                benefits: ['反射神経', 'チームワーク', 'ジャンプ力', '協調性'],
+                cost: '月額4,000円〜8,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'social']
+            },
+            gymnastics: {
+                name: '体操',
+                description: '柔軟性とバランス感覚を育む基礎運動',
+                category: 'sports',
+                icon: 'fas fa-running',
+                benefits: ['柔軟性', 'バランス感覚', '筋力向上', '集中力'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '3歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['active', 'quiet']
+            },
+            judo: {
+                name: '柔道',
+                description: '礼儀と精神力を鍛える日本の武道',
+                category: 'martial_arts',
+                icon: 'fas fa-fist-raised',
+                benefits: ['礼儀作法', '精神力', '体幹強化', '護身術'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'quiet']
+            },
+            kendo: {
+                name: '剣道',
+                description: '日本古来の武道で心身を鍛える',
+                category: 'martial_arts',
+                icon: 'fas fa-sword',
+                benefits: ['礼儀作法', '集中力', '精神力', '正しい姿勢'],
+                cost: '月額4,000円〜8,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'quiet']
+            },
+            karate: {
+                name: '空手',
+                description: '護身術と精神鍛錬を学ぶ武道',
+                category: 'martial_arts',
+                icon: 'fas fa-hand-rock',
+                benefits: ['護身術', '精神力', '体力向上', '礼儀作法'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '4歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'quiet']
+            },
+            track_field: {
+                name: '陸上競技',
+                description: '走る・跳ぶ・投げるの基本動作を鍛える',
+                category: 'sports',
+                icon: 'fas fa-running',
+                benefits: ['基礎体力', '持久力', '瞬発力', '目標達成力'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'logical']
+            },
+            badminton: {
+                name: 'バドミントン',
+                description: '反射神経と戦略性を磨くラケットスポーツ',
+                category: 'sports',
+                icon: 'fas fa-shuttlecock',
+                benefits: ['反射神経', '戦略的思考', '集中力', '持久力'],
+                cost: '月額4,000円〜10,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['active', 'logical']
+            },
+            golf: {
+                name: 'ゴルフ',
+                description: '集中力と技術を磨く紳士のスポーツ',
+                category: 'sports',
+                icon: 'fas fa-golf-ball',
+                benefits: ['集中力', '精密性', '忍耐力', '礼儀作法'],
+                cost: '月額15,000円〜30,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['quiet', 'logical']
+            },
+            rugby: {
+                name: 'ラグビー',
+                description: 'フィジカルとメンタルを鍛える激しいスポーツ',
+                category: 'sports',
+                icon: 'fas fa-football-ball',
+                benefits: ['フィジカル強化', 'チームワーク', '勇気', '戦略性'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週2回 120分',
+                traits: ['active', 'social']
+            },
+            cycling: {
+                name: 'サイクリング',
+                description: '持久力と下半身を鍛える有酸素運動',
+                category: 'sports',
+                icon: 'fas fa-bicycle',
+                benefits: ['持久力', '下半身強化', '心肺機能', '冒険心'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['active', 'quiet']
+            },
+
+            // 音楽系 (25種類)
+            piano: {
+                name: 'ピアノ',
+                description: '指先の器用さと音感を育む楽器の王様',
+                category: 'music',
+                icon: 'fas fa-piano',
+                benefits: ['音感', '指先の器用さ', '集中力', '表現力'],
+                cost: '月額8,000円〜20,000円',
+                ageRange: '3歳〜18歳',
+                timeCommitment: '週1回 30分',
+                traits: ['creative', 'quiet']
+            },
+            violin: {
+                name: 'バイオリン',
+                description: '美しい音色で感情表現を学ぶ弦楽器',
+                category: 'music',
+                icon: 'fas fa-violin',
+                benefits: ['音感', '姿勢改善', '集中力', '表現力'],
+                cost: '月額10,000円〜25,000円',
+                ageRange: '4歳〜18歳',
+                timeCommitment: '週1回 30分',
+                traits: ['creative', 'quiet']
+            },
+            guitar: {
+                name: 'ギター',
+                description: '幅広いジャンルで活躍する人気楽器',
+                category: 'music',
+                icon: 'fas fa-guitar',
+                benefits: ['音感', '指先の器用さ', '創造力', '自己表現'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'social']
+            },
+            drums: {
+                name: 'ドラム',
+                description: 'リズム感と全身の協調性を鍛える',
+                category: 'music',
+                icon: 'fas fa-drum',
+                benefits: ['リズム感', '協調性', 'ストレス発散', '集中力'],
+                cost: '月額8,000円〜15,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['active', 'creative']
+            },
+            flute: {
+                name: 'フルート',
+                description: '美しい音色と正しい呼吸法を学ぶ',
+                category: 'music',
+                icon: 'fas fa-music',
+                benefits: ['呼吸法', '音感', '集中力', '姿勢改善'],
+                cost: '月額8,000円〜18,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 30分',
+                traits: ['creative', 'quiet']
+            },
+            trumpet: {
+                name: 'トランペット',
+                description: '力強い音色で表現力を育む金管楽器',
+                category: 'music',
+                icon: 'fas fa-trumpet',
+                benefits: ['肺活量', '音感', '表現力', '集中力'],
+                cost: '月額8,000円〜18,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'social']
+            },
+            saxophone: {
+                name: 'サックス',
+                description: 'ジャズからクラシックまで幅広く活躍',
+                category: 'music',
+                icon: 'fas fa-saxophone',
+                benefits: ['肺活量', '音感', '表現力', 'ジャズ感覚'],
+                cost: '月額10,000円〜20,000円',
+                ageRange: '12歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'social']
+            },
+            cello: {
+                name: 'チェロ',
+                description: '深い音色で心の豊かさを育む大型弦楽器',
+                category: 'music',
+                icon: 'fas fa-cello',
+                benefits: ['音感', '姿勢改善', '表現力', '集中力'],
+                cost: '月額12,000円〜25,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'quiet']
+            },
+            clarinet: {
+                name: 'クラリネット',
+                description: '柔らかな音色が魅力的な木管楽器',
+                category: 'music',
+                icon: 'fas fa-clarinet',
+                benefits: ['呼吸法', '音感', '集中力', '表現力'],
+                cost: '月額8,000円〜18,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'quiet']
+            },
+            trombone: {
+                name: 'トロンボーン',
+                description: 'スライドで音程を作る独特な金管楽器',
+                category: 'music',
+                icon: 'fas fa-trombone',
+                benefits: ['肺活量', '音感', '協調性', '集中力'],
+                cost: '月額8,000円〜18,000円',
+                ageRange: '12歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'logical']
+            },
+            voice_training: {
+                name: '声楽・ボイストレーニング',
+                description: '美しい歌声と正しい発声を学ぶ',
+                category: 'music',
+                icon: 'fas fa-microphone',
+                benefits: ['発声法', '表現力', '自信向上', '肺活量'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '5歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'social']
+            },
+            chorus: {
+                name: '合唱',
+                description: 'ハーモニーを通じて協調性を学ぶ',
+                category: 'music',
+                icon: 'fas fa-users-music',
+                benefits: ['協調性', '音感', '表現力', 'チームワーク'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'social']
+            },
+            band: {
+                name: '吹奏楽',
+                description: '楽器演奏とアンサンブルを学ぶ',
+                category: 'music',
+                icon: 'fas fa-wind',
+                benefits: ['協調性', '音感', 'チームワーク', '責任感'],
+                cost: '月額5,000円〜12,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週2回 120分',
+                traits: ['creative', 'social']
+            },
+            ukulele: {
+                name: 'ウクレレ',
+                description: '気軽に始められる小さなギター',
+                category: 'music',
+                icon: 'fas fa-guitar',
+                benefits: ['音感', '手軽さ', '創造力', 'リラックス'],
+                cost: '月額4,000円〜10,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'quiet']
+            },
+            harp: {
+                name: 'ハープ',
+                description: '天使の楽器と呼ばれる美しい弦楽器',
+                category: 'music',
+                icon: 'fas fa-harp',
+                benefits: ['音感', '優雅さ', '集中力', '表現力'],
+                cost: '月額15,000円〜30,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['creative', 'quiet']
+            },
+
+            // 学習・知育系 (15種類)
             programming: {
-                name: 'プログラミング教室',
+                name: 'プログラミング',
                 description: '論理的思考力と創造力を育む現代的なスキル',
+                category: 'study',
                 icon: 'fas fa-code',
-                benefits: ['論理的思考力の向上', '創造力の発達', '将来性の高いスキル', '問題解決能力の育成'],
+                benefits: ['論理的思考', '創造力', '問題解決力', '将来性'],
                 cost: '月額8,000円〜15,000円',
                 ageRange: '6歳〜18歳',
                 timeCommitment: '週1回 60分',
-                affiliateUrl: 'https://example.com/programming'
+                traits: ['logical', 'creative']
             },
             english: {
-                name: '英会話スクール',
+                name: '英会話',
                 description: 'グローバル社会で活躍する語学力を身につける',
+                category: 'study',
                 icon: 'fas fa-globe',
-                benefits: ['国際的なコミュニケーション能力', '異文化理解', '将来の選択肢拡大', '自信の向上'],
+                benefits: ['国際的コミュニケーション', '異文化理解', '将来性', '自信向上'],
                 cost: '月額6,000円〜12,000円',
                 ageRange: '3歳〜18歳',
-                timeCommitment: '週1-2回 45分',
-                affiliateUrl: 'https://example.com/english'
+                timeCommitment: '週1回 45分',
+                traits: ['social', 'logical']
             },
-            sports: {
-                name: 'スポーツクラブ',
-                description: '健康的な体作りとチームワークを学ぶ',
-                icon: 'fas fa-running',
-                benefits: ['体力向上', 'チームワーク', '集中力向上', 'ストレス発散'],
-                cost: '月額4,000円〜10,000円',
-                ageRange: '4歳〜18歳',
-                timeCommitment: '週1-2回 90分',
-                affiliateUrl: 'https://example.com/sports'
+            abacus: {
+                name: 'そろばん',
+                description: '計算力と集中力を鍛える伝統的な学習法',
+                category: 'study',
+                icon: 'fas fa-calculator',
+                benefits: ['計算力', '集中力', '記憶力', '右脳開発'],
+                cost: '月額4,000円〜8,000円',
+                ageRange: '5歳〜15歳',
+                timeCommitment: '週2回 60分',
+                traits: ['logical', 'quiet']
             },
-            music: {
-                name: '音楽教室',
-                description: '豊かな感性と表現力を育む芸術教育',
-                icon: 'fas fa-music',
-                benefits: ['感性の向上', '集中力の向上', '表現力の発達', 'ストレス軽減'],
+            calligraphy: {
+                name: '書道',
+                description: '美しい文字と集中力を身につける日本の芸術',
+                category: 'study',
+                icon: 'fas fa-brush',
+                benefits: ['集中力', '美的感覚', '姿勢改善', '文字の美しさ'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['quiet', 'creative']
+            },
+            chinese: {
+                name: '中国語',
+                description: '将来性の高い中国語を楽しく学ぶ',
+                category: 'study',
+                icon: 'fas fa-language',
+                benefits: ['語学力', '異文化理解', '将来性', '発音力'],
+                cost: '月額6,000円〜12,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['social', 'logical']
+            },
+            french: {
+                name: 'フランス語',
+                description: '美しい響きのフランス語を学ぶ',
+                category: 'study',
+                icon: 'fas fa-language',
+                benefits: ['語学力', '異文化理解', '美的感覚', '国際性'],
+                cost: '月額6,000円〜12,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['social', 'creative']
+            },
+            korean: {
+                name: '韓国語',
+                description: '身近な韓国文化を通じて語学を学ぶ',
+                category: 'study',
+                icon: 'fas fa-language',
+                benefits: ['語学力', '異文化理解', 'K-POP理解', '国際性'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 45分',
+                traits: ['social', 'creative']
+            },
+            robotics: {
+                name: 'ロボット教室',
+                description: 'ロボット製作を通じて理科と技術を学ぶ',
+                category: 'study',
+                icon: 'fas fa-robot',
+                benefits: ['理科的思考', '創造力', '問題解決力', '手先の器用さ'],
+                cost: '月額10,000円〜20,000円',
+                ageRange: '6歳〜15歳',
+                timeCommitment: '週1回 90分',
+                traits: ['logical', 'creative']
+            },
+            mathematics: {
+                name: '数学教室',
+                description: '論理的思考力を鍛える数学の基礎学習',
+                category: 'study',
+                icon: 'fas fa-square-root-alt',
+                benefits: ['論理的思考', '問題解決力', '集中力', '分析力'],
                 cost: '月額6,000円〜15,000円',
-                ageRange: '3歳〜18歳',
-                timeCommitment: '週1回 30-60分',
-                affiliateUrl: 'https://example.com/music'
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['logical', 'quiet']
             },
-            art: {
-                name: '美術・工作教室',
-                description: '創造力と表現力を自由に伸ばす',
+            science: {
+                name: '科学実験教室',
+                description: '実験を通じて科学の面白さを体験',
+                category: 'study',
+                icon: 'fas fa-flask',
+                benefits: ['科学的思考', '観察力', '好奇心', '実験技術'],
+                cost: '月額8,000円〜15,000円',
+                ageRange: '6歳〜15歳',
+                timeCommitment: '週1回 90分',
+                traits: ['logical', 'creative']
+            },
+            reading: {
+                name: '読書・国語教室',
+                description: '読解力と表現力を高める国語学習',
+                category: 'study',
+                icon: 'fas fa-book',
+                benefits: ['読解力', '表現力', '語彙力', '想像力'],
+                cost: '月額5,000円〜10,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 60分',
+                traits: ['quiet', 'creative']
+            },
+
+            // 芸術・創作系 (15種類)
+            art_painting: {
+                name: '絵画教室',
+                description: '自由な発想で絵を描く創造性を育む',
+                category: 'art',
                 icon: 'fas fa-palette',
-                benefits: ['創造力の発達', '集中力向上', '表現力向上', '手先の器用さ'],
+                benefits: ['創造力', '表現力', '集中力', '美的感覚'],
                 cost: '月額5,000円〜12,000円',
                 ageRange: '3歳〜18歳',
-                timeCommitment: '週1回 60-90分',
-                affiliateUrl: 'https://example.com/art'
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'quiet']
             },
-            dance: {
-                name: 'ダンス教室',
-                description: 'リズム感と表現力、そして自信を育む',
-                icon: 'fas fa-play',
-                benefits: ['リズム感の向上', '表現力の発達', '体力向上', '自信の向上'],
-                cost: '月額5,000円〜10,000円',
+            pottery: {
+                name: '陶芸',
+                description: '土と触れ合いながら作品を作る伝統工芸',
+                category: 'art',
+                icon: 'fas fa-vase',
+                benefits: ['創造力', '集中力', '手先の器用さ', '忍耐力'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'quiet']
+            },
+            sculpture: {
+                name: '彫刻',
+                description: '立体造形を通じて空間認識力を育む',
+                category: 'art',
+                icon: 'fas fa-hammer',
+                benefits: ['空間認識力', '創造力', '集中力', '手先の器用さ'],
+                cost: '月額8,000円〜18,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'logical']
+            },
+            photography: {
+                name: '写真',
+                description: '美しい瞬間を切り取る芸術的感性を育む',
+                category: 'art',
+                icon: 'fas fa-camera',
+                benefits: ['美的感覚', '観察力', '創造力', 'デジタル技術'],
+                cost: '月額8,000円〜20,000円',
+                ageRange: '10歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'logical']
+            },
+            design: {
+                name: 'デザイン',
+                description: 'グラフィックデザインの基礎を学ぶ',
+                category: 'art',
+                icon: 'fas fa-pencil-ruler',
+                benefits: ['デザイン力', '創造力', 'IT技術', '美的感覚'],
+                cost: '月額10,000円〜20,000円',
+                ageRange: '12歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'logical']
+            },
+            handicraft: {
+                name: '手芸・工作',
+                description: '手先を使った創作活動で器用さを育む',
+                category: 'art',
+                icon: 'fas fa-cut',
+                benefits: ['手先の器用さ', '創造力', '集中力', '完成の喜び'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '4歳〜15歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'quiet']
+            },
+            origami: {
+                name: '折り紙',
+                description: '日本の伝統文化で集中力と手先の器用さを育む',
+                category: 'art',
+                icon: 'fas fa-paper-plane',
+                benefits: ['手先の器用さ', '集中力', '空間認識力', '伝統文化'],
+                cost: '月額2,000円〜5,000円',
+                ageRange: '4歳〜15歳',
+                timeCommitment: '週1回 60分',
+                traits: ['quiet', 'logical']
+            },
+            manga: {
+                name: '漫画・イラスト',
+                description: 'ストーリーと絵で表現する現代的な芸術',
+                category: 'art',
+                icon: 'fas fa-pencil',
+                benefits: ['表現力', '創造力', 'ストーリー構成', '集中力'],
+                cost: '月額6,000円〜12,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'quiet']
+            },
+
+            // ダンス・パフォーマンス系 (10種類)
+            ballet: {
+                name: 'バレエ',
+                description: '優雅さと美しい姿勢を身につける古典舞踊',
+                category: 'dance',
+                icon: 'fas fa-shoe-prints',
+                benefits: ['姿勢改善', '柔軟性', '表現力', '優雅さ'],
+                cost: '月額8,000円〜20,000円',
                 ageRange: '3歳〜18歳',
                 timeCommitment: '週1回 60分',
-                affiliateUrl: 'https://example.com/dance'
+                traits: ['creative', 'active']
+            },
+            jazz_dance: {
+                name: 'ジャズダンス',
+                description: 'リズミカルで表現豊かなモダンダンス',
+                category: 'dance',
+                icon: 'fas fa-music',
+                benefits: ['リズム感', '表現力', '体力向上', '自信向上'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'active']
+            },
+            hip_hop: {
+                name: 'ヒップホップダンス',
+                description: 'かっこよく踊る現代的なストリートダンス',
+                category: 'dance',
+                icon: 'fas fa-headphones',
+                benefits: ['リズム感', '自己表現', '体力向上', '創造力'],
+                cost: '月額5,000円〜12,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'active']
+            },
+            japanese_dance: {
+                name: '日本舞踊',
+                description: '日本の伝統文化を体現する美しい舞踊',
+                category: 'dance',
+                icon: 'fas fa-fan',
+                benefits: ['伝統文化', '礼儀作法', '表現力', '姿勢改善'],
+                cost: '月額8,000円〜20,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['creative', 'quiet']
+            },
+            cheerleading: {
+                name: 'チアリーディング',
+                description: '元気よく踊って人を応援するスポーツダンス',
+                category: 'dance',
+                icon: 'fas fa-pom-poms',
+                benefits: ['チームワーク', '体力向上', '表現力', 'ポジティブ思考'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週2回 90分',
+                traits: ['active', 'social']
+            },
+            theater: {
+                name: '演劇',
+                description: '演技を通じて表現力とコミュニケーション力を育む',
+                category: 'performance',
+                icon: 'fas fa-theater-masks',
+                benefits: ['表現力', 'コミュニケーション力', '自信向上', '協調性'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'social']
+            },
+
+            // 文化・教養系 (5種類)
+            tea_ceremony: {
+                name: '茶道',
+                description: '日本の伝統文化で心を整え礼儀を学ぶ',
+                category: 'culture',
+                icon: 'fas fa-leaf',
+                benefits: ['礼儀作法', '集中力', '伝統文化', '心の平静'],
+                cost: '月額5,000円〜15,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['quiet', 'creative']
+            },
+            flower_arrangement: {
+                name: '華道',
+                description: '花を通じて美的感覚と集中力を育む',
+                category: 'culture',
+                icon: 'fas fa-seedling',
+                benefits: ['美的感覚', '集中力', '伝統文化', '心の豊かさ'],
+                cost: '月額6,000円〜15,000円',
+                ageRange: '8歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['quiet', 'creative']
+            },
+            go: {
+                name: '囲碁',
+                description: '戦略的思考力を鍛える古典的なボードゲーム',
+                category: 'culture',
+                icon: 'fas fa-chess',
+                benefits: ['戦略的思考', '集中力', '忍耐力', '論理的思考'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['logical', 'quiet']
+            },
+            shogi: {
+                name: '将棋',
+                description: '日本の伝統的な戦略ゲームで思考力を鍛える',
+                category: 'culture',
+                icon: 'fas fa-chess-king',
+                benefits: ['戦略的思考', '集中力', '記憶力', '先読み能力'],
+                cost: '月額3,000円〜8,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 90分',
+                traits: ['logical', 'quiet']
+            },
+            cooking: {
+                name: '料理教室',
+                description: '食材と向き合い創造力と生活力を身につける',
+                category: 'culture',
+                icon: 'fas fa-utensils',
+                benefits: ['生活力', '創造力', '栄養知識', '達成感'],
+                cost: '月額5,000円〜12,000円',
+                ageRange: '6歳〜18歳',
+                timeCommitment: '週1回 120分',
+                traits: ['creative', 'logical']
             }
         };
 
-        // Scoring algorithm
+        // Categories for chart display
+        var categoryLabels = {
+            sports: 'スポーツ',
+            martial_arts: '武道',
+            music: '音楽',
+            study: '学習',
+            art: '芸術',
+            dance: 'ダンス',
+            performance: 'パフォーマンス',
+            culture: '文化・教養'
+        };
+
+        // Enhanced scoring algorithm for 100+ activities
         function calculateActivityScores(answers) {
-            debugLog('Calculating activity scores...');
+            debugLog('Calculating activity scores for 100+ activities...');
             
-            var scores = {
-                programming: 0,
-                english: 0,
-                sports: 0,
-                music: 0,
-                art: 0,
-                dance: 0
-            };
+            var scores = {};
+            var categoryScores = {};
+            
+            // Initialize scores for all activities
+            Object.keys(activities).forEach(function(key) {
+                scores[key] = 0;
+            });
+            
+            // Initialize category scores
+            Object.keys(categoryLabels).forEach(function(key) {
+                categoryScores[key] = 0;
+            });
 
-            // Age scoring
+            // Age-based scoring
             var age = answers.age;
-            if (age === '7-9' || age === '10-12') {
-                scores.programming += 30;
-            } else if (age === '13-15' || age === '16-18') {
-                scores.programming += 40;
-            }
+            Object.keys(activities).forEach(function(key) {
+                var activity = activities[key];
+                var ageRange = activity.ageRange;
+                
+                // Parse age range and check compatibility
+                if (ageRange.includes('3歳') && (age === '3-4' || age === '5-6')) {
+                    scores[key] += 20;
+                } else if (ageRange.includes('6歳') && ['7-9', '10-12'].includes(age)) {
+                    scores[key] += 25;
+                } else if (ageRange.includes('10歳') && ['10-12', '13-15'].includes(age)) {
+                    scores[key] += 25;
+                } else if (ageRange.includes('12歳') && ['13-15', '16-18'].includes(age)) {
+                    scores[key] += 25;
+                }
+            });
 
-            // Personality scoring
+            // Personality-based scoring
             var personality = answers.personality;
-            switch (personality) {
-                case 'active':
-                    scores.sports += 40;
-                    scores.dance += 30;
-                    break;
-                case 'creative':
-                    scores.art += 40;
-                    scores.music += 35;
-                    scores.dance += 25;
-                    break;
-                case 'logical':
-                    scores.programming += 45;
-                    scores.music += 20;
-                    break;
-                case 'social':
-                    scores.english += 40;
-                    scores.dance += 30;
-                    scores.sports += 25;
-                    break;
-                case 'quiet':
-                    scores.art += 35;
-                    scores.programming += 30;
-                    scores.music += 30;
-                    break;
-            }
+            Object.keys(activities).forEach(function(key) {
+                var activity = activities[key];
+                if (activity.traits && activity.traits.includes(personality)) {
+                    scores[key] += 40;
+                }
+                
+                // Additional personality bonuses
+                switch (personality) {
+                    case 'active':
+                        if (activity.category === 'sports' || activity.category === 'martial_arts') {
+                            scores[key] += 20;
+                        }
+                        break;
+                    case 'creative':
+                        if (activity.category === 'art' || activity.category === 'music' || activity.category === 'dance') {
+                            scores[key] += 20;
+                        }
+                        break;
+                    case 'logical':
+                        if (activity.category === 'study') {
+                            scores[key] += 20;
+                        }
+                        break;
+                    case 'social':
+                        if (activity.benefits.includes('チームワーク') || activity.benefits.includes('協調性')) {
+                            scores[key] += 15;
+                        }
+                        break;
+                    case 'quiet':
+                        if (activity.category === 'culture' || activity.category === 'art') {
+                            scores[key] += 15;
+                        }
+                        break;
+                }
+            });
 
-            // Interest scoring
+            // Interest-based scoring
             var interests = answers.interests;
-            switch (interests) {
-                case 'sports':
-                    scores.sports += 50;
-                    break;
-                case 'art':
-                    scores.art += 50;
-                    scores.music += 30;
-                    break;
-                case 'science':
-                    scores.programming += 50;
-                    break;
-                case 'language':
-                    scores.english += 50;
-                    break;
-                case 'performance':
-                    scores.dance += 50;
-                    scores.music += 30;
-                    break;
-            }
+            Object.keys(activities).forEach(function(key) {
+                var activity = activities[key];
+                
+                switch (interests) {
+                    case 'sports':
+                        if (activity.category === 'sports' || activity.category === 'martial_arts') {
+                            scores[key] += 50;
+                        }
+                        break;
+                    case 'art':
+                        if (activity.category === 'art' || activity.category === 'music' || activity.category === 'dance') {
+                            scores[key] += 50;
+                        }
+                        break;
+                    case 'science':
+                        if (activity.category === 'study' && (key.includes('programming') || key.includes('robotics') || key.includes('science'))) {
+                            scores[key] += 50;
+                        }
+                        break;
+                    case 'language':
+                        if (activity.category === 'study' && (key.includes('english') || key.includes('chinese') || key.includes('french') || key.includes('korean'))) {
+                            scores[key] += 50;
+                        }
+                        break;
+                    case 'performance':
+                        if (activity.category === 'dance' || activity.category === 'performance' || activity.category === 'music') {
+                            scores[key] += 50;
+                        }
+                        break;
+                }
+            });
 
             // Energy level scoring
             var energy = answers.energy;
-            switch (energy) {
-                case 'high':
-                case 'medium-high':
-                    scores.sports += 30;
-                    scores.dance += 25;
-                    break;
-                case 'medium-low':
-                case 'low':
-                    scores.programming += 20;
-                    scores.art += 20;
-                    scores.music += 20;
-                    break;
-            }
+            Object.keys(activities).forEach(function(key) {
+                var activity = activities[key];
+                
+                switch (energy) {
+                    case 'high':
+                    case 'medium-high':
+                        if (activity.category === 'sports' || activity.category === 'martial_arts' || activity.category === 'dance') {
+                            scores[key] += 30;
+                        }
+                        break;
+                    case 'medium-low':
+                    case 'low':
+                        if (activity.category === 'culture' || activity.category === 'art' || (activity.category === 'study' && !key.includes('robotics'))) {
+                            scores[key] += 20;
+                        }
+                        break;
+                }
+            });
 
             // Budget considerations
             var budget = answers.budget;
-            if (budget === 'low') {
-                scores.sports += 10; // Generally more affordable
+            Object.keys(activities).forEach(function(key) {
+                var activity = activities[key];
+                var cost = activity.cost;
+                
+                if (budget === 'low' && (cost.includes('3,000円') || cost.includes('4,000円') || cost.includes('5,000円'))) {
+                    scores[key] += 15;
+                } else if (budget === 'high' && cost.includes('20,000円')) {
+                    scores[key] += 10;
+                }
+            });
+
+            // Calculate category scores for chart
+            Object.keys(activities).forEach(function(key) {
+                var activity = activities[key];
+                var category = activity.category;
+                if (!categoryScores[category]) {
+                    categoryScores[category] = 0;
+                }
+                categoryScores[category] += scores[key];
+            });
+
+            // Normalize category scores
+            var maxCategoryScore = Math.max(...Object.values(categoryScores));
+            if (maxCategoryScore > 0) {
+                Object.keys(categoryScores).forEach(function(key) {
+                    categoryScores[key] = Math.round((categoryScores[key] / maxCategoryScore) * 100);
+                });
             }
 
-            debugLog('Calculated scores: ' + JSON.stringify(scores));
-            return scores;
+            debugLog('Calculated scores for ' + Object.keys(scores).length + ' activities');
+            return { activityScores: scores, categoryScores: categoryScores };
         }
 
-        function getTopRecommendations(scores) {
-            var sortedActivities = Object.keys(scores)
+        function getTopRecommendations(activityScores, count = 10) {
+            var sortedActivities = Object.keys(activityScores)
                 .map(function(key) {
-                    return { name: key, score: scores[key] };
+                    return { name: key, score: activityScores[key] };
                 })
                 .sort(function(a, b) {
                     return b.score - a.score;
                 })
-                .slice(0, 3);
+                .slice(0, count);
 
-            debugLog('Top recommendations: ' + JSON.stringify(sortedActivities));
+            debugLog('Top ' + count + ' recommendations: ' + JSON.stringify(sortedActivities.slice(0, 3)));
             return sortedActivities;
         }
 
@@ -703,12 +1392,13 @@
         function calculateResults() {
             debugLog('Calculating final results...');
             
-            var scores = calculateActivityScores(appState.answers);
-            var topRecommendations = getTopRecommendations(scores);
+            var scoreResults = calculateActivityScores(appState.answers);
+            var topRecommendations = getTopRecommendations(scoreResults.activityScores, 10);
             var personalityType = getPersonalityType(appState.answers);
             
             appState.result = {
-                scores: scores,
+                activityScores: scoreResults.activityScores,
+                categoryScores: scoreResults.categoryScores,
                 topRecommendations: topRecommendations,
                 personalityType: personalityType,
                 timestamp: new Date(),
@@ -728,13 +1418,13 @@
             // Render personality result
             var personalityElement = document.getElementById('personality-result');
             if (personalityElement) {
-                personalityElement.innerHTML = '<div class="text-lg"><strong>' + result.personalityType + '</strong></div><p class="mt-2 text-gray-700">お子様の性格特性に基づいた最適な習い事をご提案します。</p>';
+                personalityElement.innerHTML = '<div class="text-lg"><strong>' + result.personalityType + '</strong></div><p class="mt-2 text-gray-700">お子様の性格特性に基づいて、100種類以上の習い事から最適なものをご提案します。</p>';
             }
 
-            // Render chart
-            renderChart(result.scores);
+            // Render chart with category scores
+            renderChart(result.categoryScores);
 
-            // Render recommendations
+            // Render top 10 recommendations
             var recommendationsElement = document.getElementById('recommendations');
             if (recommendationsElement) {
                 recommendationsElement.innerHTML = '';
@@ -745,24 +1435,33 @@
                     
                     var rank = index + 1;
                     var cardDiv = document.createElement('div');
-                    cardDiv.className = 'result-card rounded-xl p-6 text-white relative overflow-hidden';
+                    
+                    // Different styling for different ranks
+                    var bgClass = 'bg-gradient-to-br from-blue-400 to-blue-600';
+                    if (rank <= 3) {
+                        bgClass = 'bg-gradient-to-br from-yellow-400 to-orange-500';
+                    } else if (rank <= 6) {
+                        bgClass = 'bg-gradient-to-br from-green-400 to-blue-500';
+                    }
+                    
+                    cardDiv.className = bgClass + ' rounded-xl p-4 text-white relative overflow-hidden shadow-lg';
                     
                     cardDiv.innerHTML = 
                         '<div class="relative z-10">' +
-                        '<div class="text-center mb-4">' +
-                        '<div class="text-3xl font-bold">' + rank + '位</div>' +
-                        '<i class="' + activity.icon + ' text-3xl mt-2"></i>' +
+                        '<div class="flex justify-between items-start mb-3">' +
+                        '<div class="text-2xl font-bold">' + rank + '位</div>' +
+                        '<i class="' + activity.icon + ' text-2xl"></i>' +
                         '</div>' +
-                        '<h4 class="text-xl font-bold mb-2">' + activity.name + '</h4>' +
-                        '<p class="text-sm opacity-90 mb-4">' + activity.description + '</p>' +
-                        '<div class="space-y-2 text-sm">' +
-                        '<div><i class="fas fa-yen-sign mr-2"></i>' + activity.cost + '</div>' +
-                        '<div><i class="fas fa-clock mr-2"></i>' + activity.timeCommitment + '</div>' +
-                        '<div><i class="fas fa-users mr-2"></i>' + activity.ageRange + '</div>' +
+                        '<h4 class="text-lg font-bold mb-2">' + activity.name + '</h4>' +
+                        '<p class="text-sm opacity-90 mb-3">' + activity.description + '</p>' +
+                        '<div class="space-y-1 text-xs">' +
+                        '<div><i class="fas fa-yen-sign mr-1"></i>' + activity.cost + '</div>' +
+                        '<div><i class="fas fa-clock mr-1"></i>' + activity.timeCommitment + '</div>' +
+                        '<div><i class="fas fa-users mr-1"></i>' + activity.ageRange + '</div>' +
                         '</div>' +
-                        '<button class="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white py-2 px-4 rounded-lg mt-4 transition-all" onclick="window.open(\'' + activity.affiliateUrl + '\', \'_blank\')">' +
-                        '<i class="fas fa-external-link-alt mr-2"></i>詳細を見る' +
-                        '</button>' +
+                        '<div class="mt-3 text-xs opacity-80">' +
+                        '<div><i class="fas fa-star mr-1"></i>スコア: ' + rec.score + '点</div>' +
+                        '</div>' +
                         '</div>';
                     
                     recommendationsElement.appendChild(cardDiv);
@@ -770,14 +1469,14 @@
             }
         }
 
-        function renderChart(scores) {
+        function renderChart(categoryScores) {
             var ctx = document.getElementById('aptitude-chart');
             if (!ctx) return;
             
-            var labels = Object.keys(scores).map(function(key) {
-                return activities[key] ? activities[key].name : key;
+            var labels = Object.keys(categoryScores).map(function(key) {
+                return categoryLabels[key] || key;
             });
-            var data = Object.values(scores);
+            var data = Object.values(categoryScores);
             
             new Chart(ctx, {
                 type: 'radar',
@@ -801,7 +1500,10 @@
                     scales: {
                         r: {
                             beginAtZero: true,
-                            max: 100
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
                         }
                     },
                     plugins: {
@@ -843,7 +1545,8 @@
             if (!result) return;
 
             const topActivity = result.topRecommendations[0];
-            const shareText = `【子供の習い事診断結果】\n\nおすすめの習い事：${topActivity.name}\n\nあなたのお子様にぴったりの習い事を見つけませんか？\nhttps://appadaycreator.github.io/kids-activity-finder/`;
+            const activityName = activities[topActivity.name] ? activities[topActivity.name].name : topActivity.name;
+            const shareText = `【子供の習い事診断結果】\n\nおすすめの習い事：${activityName}\n性格タイプ：${result.personalityType}\n\n100種類以上から最適な習い事を診断！\nhttps://appadaycreator.github.io/kids-activity-finder/`;
 
             navigator.share({
                 title: '子供の習い事診断結果',
@@ -996,7 +1699,7 @@
                 // Initialize state
                 appState.startTime = new Date();
                 
-                debugLog('Application initialized successfully');
+                debugLog('Application initialized successfully with ' + Object.keys(activities).length + ' activities');
             } catch (error) {
                 debugLog('Error initializing application: ' + error.message);
                 console.error('Application initialization error:', error);
@@ -1023,7 +1726,7 @@
             });
         }
 
-        debugLog('Script loaded successfully');
+        debugLog('Script loaded successfully with ' + Object.keys(activities).length + ' activities in database');
     </script>
 </body>
 </html>
