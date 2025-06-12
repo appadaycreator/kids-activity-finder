@@ -129,4 +129,69 @@ Kids Activity Finderは、子供の習い事診断を行うウェブアプリケ
 - 定期的なセキュリティチェック
 - 脆弱性スキャン
 - プライバシーポリシーの更新
-- ライブラリのバージョン管理 
+- ライブラリのバージョン管理
+
+## 7. 実装済みおすすめ教室リスト
+以下はアプリに実装されている代表的なおすすめ教室の一覧です。
+- コナミスポーツクラブ ベビースイミング: <https://www.konami.com/sportsclub/child/>
+- ベビーマッサージ教室 momo: <https://babymassage-momo.com/>
+- ヒューマンアカデミー ロボット教室: <https://kids.athuman.com/robot/>
+- 日本ベビーヨガ協会: <https://babyyoga.jp/>
+- デジタルハリウッド スクール: <https://school.dhw.co.jp/>
+- JACPA 幼児体操教室: <https://www.jacpa.co.jp/>
+- ベビーパーク: <https://babypark.jp/>
+- Cookpad Do! 親子料理教室: <https://cookpad.do/>
+- SecHack365: <https://sechack365.nict.go.jp/>
+- SIGNATE Quest: <https://quest.signate.jp/>
+- 日本シュタイナー学校協会: <https://www.waldorf.or.jp/>
+- 森のようちえん全国ネットワーク: <https://morinoyouchien.org/>
+- QUREO（キュレオ）プログラミング教室: <https://qureo.jp/>
+- eスポーツアカデミー: <https://esports-academy.jp/>
+- ドローンスクールジャパン: <https://drone-school-japan.com/>
+- 動画クリエイターズアカデミー: <https://vca.tokyo/>
+- Unityゲームクリエイター講座: <https://unity.com/>
+- VCAスクール: <https://vca.tokyo/>
+- Tinkercad: <https://www.tinkercad.com/>
+- デジハリONLINE: <https://online.dhw.co.jp/>
+- セキュリティ・キャンプ: <https://www.security-camp.or.jp/>
+- Makeblock STEM Center: <https://www.makeblock.com/>
+- DMM.make 3Dプリント教室: <https://make.dmm.com/>
+- Blockchain Academy: <https://blockchainacademy.jp/>
+- Googleデジタルワークショップ: <https://learndigital.withgoogle.com/digitalworkshop-jp>
+- TechAcademy: <https://techacademy.jp/>
+- StartupWeekend: <https://nposw.org/>
+- リベルタサッカースクール: <https://liberta-sports.com/>
+- コナミスポーツクラブ: <https://www.konami.com/sportsclub/>
+- ボーイズリーグ: <https://www.boysleague-jp.org/>
+- 日本テニス協会公認スクール: <https://www.jta-tennis.or.jp/>
+- バスケットボール協会クラブ: <https://www.japanbasketball.jp/>
+- Tokyo Parkour Academy: <https://parkour.tokyo/>
+- B-PUMP クライミングジム: <https://www.b-pump.com/>
+- ムラサキスポーツ スケートスクール: <https://www.murasaki.co.jp/>
+- NSA日本サーフィン連盟: <https://www.nsa-surf.org/>
+- JBMXF公認スクール: <https://www.jbmxa.com/>
+- 講道館柔道 認定道場: <https://kodokanjudoinstitute.org/>
+- 全日本剣道連盟 公認道場: <https://www.kendo.or.jp/>
+- 全日本空手道連盟: <https://www.jkf.ne.jp/>
+- ヤマハ音楽教室: <https://school.jp.yamaha.com/music-school/>
+- スズキ・メソード バイオリン教室: <https://www.suzukimethod.or.jp/>
+- ヤマハ音楽教室 ギターコース: <https://school.jp.yamaha.com/music-school/guitar/>
+- Tech Kids School: <https://techkidsschool.jp/>
+- ECCジュニア: <https://www.eccjr.co.jp/>
+- 日本珠算連盟: <https://www.soroban.or.jp/>
+- アトリエ・エトワール: <https://www.atelier-etoile.com/>
+- 陶芸工房 陶芸教室: <https://www.tougei-kobo.com/>
+- 東京写真学園: <https://www.tpa-japan.com/>
+- チャコット・カルチャースタジオ: <https://www.chacott-jp.com/>
+- EXPG STUDIO: <https://expg.jp/>
+- 劇団ひまわり: <https://himawari.net/>
+- マジック教室 MagicLand: <https://www.magicland.jp/>
+- 表千家茶道教室: <https://www.omotesenke.jp/>
+- 日本棋院 囲碁教室: <https://www.nihonkiin.or.jp/>
+- 日本将棋連盟 子供教室: <https://www.shogi.or.jp/>
+- ABC Cooking Studio キッズ: <https://www.abc-cooking.co.jp/kids/>
+- 日本習字: <https://www.nihon-shuji.jp/>
+- 日本チェス連盟: <https://www.japanchess.org/>
+- スタジオ・ヨギー キッズヨガ: <https://www.studio-yoggy.com/>
+- 日本キャンプ協会: <https://www.camping.or.jp/>
+
